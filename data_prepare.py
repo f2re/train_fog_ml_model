@@ -43,24 +43,12 @@ def convert_file():
                 sp = line.split(',')
                 # 'Date','HrMn','Cv','Hgt','Wx.17','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp'
                 if len(sp)>=140:
-                    nl = [sp[2],sp[3],sp[74],sp[12],sp[126],sp[16],sp[7],sp[20],sp[22],sp[140],sp[24]]
+                    nl = [sp[2],sp[3],sp[74],sp[12],sp[126],sp[16],sp[7],sp[10],sp[20],sp[22],sp[140],sp[24]]
                     line = ','.join(nl)
                 fout.write(line+"\n")
-    
-
-    # first = False
-    # i=0
-    # for line in fin:
-    # 	if i>0:
-    #         l=line
-    #         if i==2:
-    #             l=re.sub('\s+',',',line)
-    #         # fout.write(re.sub('\s+',' ',l))
-    #         print(l.split(','))
-    #     i++
-        
-    # fin.close()
     fout.close()
+
+# convert_file()
 
 # 
 # Конвертируем и подготавливаем текстовый файл к работе
@@ -73,39 +61,53 @@ def txt_to_csv(filename='train'):
     df       = df.astype('float')
     print(df.head())
     print(df.info(memory_usage='deep'))
-    df.to_csv(filename+'.csv',sep=',')
+    df.to_csv(filename+'.csv',sep=';')
 # 
 # 2. конвертируем текстовый файл в csv
 # 
 # txt_to_csv()
 
+# 
+# 3. Подготавливаем параметры для обучения
+# 
+def read_file(filename='train'):
+    df = pd.read_csv(filename+'.csv', sep=';', low_memory=False , index_col='dt')
+    return df
+
+df = read_file()
+
+# устанавливаем флаг тумана в отдельной колоке
+def set_fog_flag(df=None):
+    fog_values = [ 20,30,31,32,33,34,35 ]
+
+    for index, row in df.loc[ (df.Visby>0) & (df.Visby<=1000) ].iterrows():
+        if df.at[index, 'Wx'] in fog_values:
+            df.at[index, 'fog'] = True
+        else:
+            df.at[index, 'fog'] = False
+    # save file
+    df.to_csv('train.csv',sep=';')
+
+# set_fog_flag(df)
 
 
-# exit()
-# use_cols = ['Date','HrMn','Cv','Hgt','Wx.17','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']
-# # первый этап - читаем файл
-# data_iterator = pd.read_csv('train2.txt' , sep=',', usecols=use_cols, low_memory=False , index_col=False, chunksize=10000)
+# 
+# 4. cat boost train
+# 
+import catboost as cb
+from catboost import CatBoostRegressor, Pool
 
-# chunk_list = []  
+X = df[['Cv','Hgt','Wx','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']]
+y = df[['fog']]
+dataset = cb.Pool(X, y, cat_features=['d'])
 
-# Each chunk is in dataframe format
-# for data_chunk in data_iterator:  
-#     filtered_chunk = chunk_filtering(data_chunk)
-#     print(data_chunk)
-#     chunk_list.append(filtered_chunk)
-#     exit()
-    
-# filtered_data = pd.concat(chunk_list)
-    
-# concat the list into dataframe 
-# df_concat = pd.concat(chunk_list)
-# print(df_concat.head())
-# df_concat.to_csv('train_1_step.csv')
-# df = pd.read_csv('train2.txt' , sep=',',dtype='string', low_memory=False , index_col=False)
-# df = df[['Date','HrMn','Cv','Hgt','Wx.17','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']]
-# df.to_csv('train_1_step.csv')
-# print(df.head())
+print(dataset)
 
-# df = df.astype('string', copy=False)
-# print(df.iloc[10])
-# print(df.columns.tolist())
+# Initialize CatBoostRegressor
+model = CatBoostRegressor(iterations=2,
+                          learning_rate=1,
+                          depth=2)
+# Fit model
+model.fit(train_data, train_labels)
+# Get predictions
+preds = model.predict(eval_data)
