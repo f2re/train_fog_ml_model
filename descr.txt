@@ -1,0 +1,3482 @@
+IDENTIFICATION: CDS header
+	Length:0
+
+USAF: Identification FIXED-WEATHER-STATION USAF MASTER STATION CATALOG identifier
+
+	The identifier that represents a FIXED-WEATHER-STATION. 
+	Length:6
+
+NCDC: Identification FIXED-WEATHER-STATION NCDC WBAN identifier
+
+	The identifier that represents a FIXED-WEATHER-STATION. 
+	Length:5
+
+DATE: Identification GEOPHYSICAL-POINT-OBSERVATION date
+
+	The date of a GEOPHYSICAL-POINT-OBSERVATION. 
+	Length:8
+
+HRMN: Identification GEOPHYSICAL-POINT-OBSERVATION time
+
+	The time of a GEOPHYSICAL-POINT-OBSERVATION based on Coordinated Universal 
+	Time Code (UTC). 
+	Length:4
+
+I: Identification GEOPHYSICAL-POINT-OBSERVATION data source flag
+
+	The flag of a GEOPHYSICAL-POINT-OBSERVATION showing the source or combination 
+	of sources used in creating the observation. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	1: USAF hourly observation, candidate for merge with NCDC Surface Hourly (not yet merged, failed element cross-checks)
+2: NCDC hourly observation, candidate for merge with USAF Surface Hourly (not yet merged, failed element cross-checks)
+3: USAF hourly/NCDC hourly merged observation
+4: USAF Surface Hourly observation
+5: NCDC hourly observation
+6: ASOS/AWOS observation from NCDC*
+7: ASOS/AWOS observation merged with USAF Surface Hourly observation*
+8: MAPSO observation (NCDC)*
+A: USAF hourly/NCDC hourly precipitation merged observation, candidate for merge with NCDC Surface Hourly (not yet merged, failed element cross-checks)
+B: NCDC hourly/NCDC hourly precipitation merged observation, candidate for merge with USAF Surface Hourly (not yet merged, failed element cross-checks)
+C: USAF hourly/NCDC hourly/NCDC hourly precipitation merged observation
+D: USAF hourly/NCDC hourly precipitation merged observation
+E: NCDC hourly/NCDC hourly precipitation merged observation
+F: Form OMR/1001 - Weather Bureau city office (keyed data)*
+G: SAO surface airways observation, pre-1949 (keyed data)*
+H: SAO surface airways observation, 1965-1981 format/period (keyed data)*
+I: Climate Reference Network observation*
+J: Cooperative Network observation*
+K: Radiation Network observation*
+L: Data from Climate Data Modernization Program (CDMP) data source*
+M: National Renewable Energy Laboratory (NREL)*
+N: NCAR / NCDC cooperative effort (various national datasets)*
+
+
+TYPE: Identification GEOPHYSICAL-REPORT-TYPE code
+
+	The code that denotes the type of geophysical surface observation. 
+	Length:5
+	Default Value:99999
+	Table of Values:
+
+	AERO: Aerological report
+	AUST: Dataset from Australia*
+	AUTO: Report from an automatic station
+	BOGUS: Bogus report
+	BRAZ: Dataset from Brazil*
+	COOPD: US Cooperative Network summary of day report*
+	COOPS: US Cooperative Network soil temperature report*
+	CRB: Climate Reference Book data from CDMP*
+	CRN05: Climate Reference Network report, with 5-minute reporting interval*
+	CRN15: Climate Reference Network report, with 15-minute reporting interval*
+	FM-12: SYNOP Report of surface observation form a fixed land station
+	FM-13: SHIP Report of surface observation from a sea station
+	FM-14: SYNOP MOBIL Report of surface observation from a mobile land station
+	FM-15: METAR Aviation routine weather report
+	FM-16: SPECI Aviation selected special weather report
+	FM-18: BUOY Report of a buoy observation
+	GREEN: Dataset from Greenland*
+	MESOS: MESONET operated civilian or government agency
+	MEXIC: Dataset from Mexico*
+	NSRDB: National Solar Radiation Data Base
+	PCP15: US 15-minute precipitation network report*
+	PCP60: US 60-minute precipitation network report*
+	S-S-A: Synoptic, airways, and auto merged report
+	SA-AU: Airways and auto merged report
+	SAO: Airways report (includes record specials)
+	SAOSP: Airways special report (excluding record specials)
+	SHEF: Standard Hydrologic Exchange Format
+	SMARS: Supplementary airways station report
+	SOD: Summary of day report from U.S. ASOS or AWOS station*
+	SOM: Summary of month report from U.S. ASOS or AWOS station*
+	SURF: Surface Radiation Network report*
+	SY-AE: Synoptic and aero merged report
+	SY-AU: Synoptic and auto merged report
+	SY-MT: Synoptic and METAR merged report
+	SY-SA: Synoptic and airways merged report
+	WBO: Weather Bureau Office*
+	WNO: Washington Naval Observatory
+	
+
+WIND: WIND-OBSERVATION header
+	Length:0
+
+DIR: WIND-OBSERVATION direction angle
+
+	The angle, measured in a clockwise direction, between true north and the 
+	direction from which the wind is blowing. 
+	Length:3
+	Scale:1
+	Unit:Angular Degrees
+	Default Value:999
+	Table of Values:
+
+	999: Missing.  If type code (below) = V, then 999 indicates variable wind direction.
+	
+
+Q: WIND-OBSERVATION direction quality code
+
+	The code that denotes a quality status of a reported WIND-OBSERVATION direction 
+	angle. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+I: WIND-OBSERVATION type code
+
+	The code that denotes the character of the WIND-OBSERVATION. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	A: Abridged Beaufort
+	B: Beaufort
+	C: Calm
+	H: 5-Minute Average Speed
+	N: Normal
+	Q: Squall
+	R: 60-Minute Average Speed
+	T: 180 Minute Average Speed
+	V: Variable
+	
+
+SPD: WIND-OBSERVATION speed rate
+
+	The rate of horizontal travel of air past a fixed point. 
+	Length:4
+	Scale:10
+	Unit:Meters per Second
+	Default Value:9999
+
+Q: WIND-OBSERVATION speed quality code
+
+	The code that denotes a quality status of a reported WIND-OBSERVATION speed 
+	rate. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+CEILING: SKY-CONDITION-OBSERVATION header
+	Length:0
+
+HGT: SKY-CONDITION-OBSERVATION ceiling height dimension
+
+	The height above ground level (AGL) of the lowest cloud or obscuring phenomena 
+	layer aloft with 5/8 or more summation total sky cover, which may be predominantly 
+	opaque, or the vertical visibility into a surface-based obstruction. 
+	Length:5
+	Scale:1
+	Unit:Meters
+	Default Value:99999
+	Table of Values:
+
+	22000: Unlimited
+	
+
+Q: SKY-CONDITION-OBSERVATION ceiling quality code
+
+	The code that denotes a quality status of a reported ceiling height dimension. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+I: SKY-CONDITION-OBSERVATION ceiling determination code
+
+	The code that denotes the method used to determine the ceiling. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	A: Aircraft
+	B: Balloon
+	C: Statistically derived
+	D: Persistent cirriform ceiling (pre-1950 data)
+	E: Estimated
+	M: Measured
+	P: Precipitation ceiling (pre-1950 data)
+	R: Radar
+	S: ASOS augmented
+	U: Unknown ceiling (pre-1950 data)
+	V: Variable ceiling (pre-1950 data)
+	W: Obscured
+	
+
+I: SKY-CONDITION-OBSERVATION CAVOK code
+
+	The code that represents whether the 'Ceiling And Visibility Okay' (CAVOK) 
+	condition has been reported. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	N: No
+	Y: Yes
+	
+
+VISIBILITY: VISIBILITY-OBSERVATION header
+	Length:0
+
+VISBY: VISIBILITY-OBSERVATION distance dimension
+
+	The horizontal distance at which an object can be seen and identified. 
+	
+	Length:6
+	Scale:1
+	Unit:Meters
+	Table of Values:
+
+	Missing: 999999
+	NOTE: Values greater than 160000 are entered as 160000
+	
+
+Q: VISIBILITY-OBSERVATION distance quality code
+
+	The code that denotes a quality status of a reported distance of a visibility 
+	observation. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+I: VISIBILITY-OBSERVATION variability code
+
+	The code that denotes whether or not the reported visibility is variable. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	N: Not variable
+	V: Variable
+	
+
+Q: VISIBILITY-OBSERVATION quality variability code
+
+	The code that denotes a quality status of a reported VISIBILITY-OBSERVATION 
+	variability code. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+TEMP: AIR-TEMPERATURE-OBSERVATION header
+	Length:0
+
+TEMP: AIR-TEMPERATURE-OBSERVATION air temperature
+
+	The temperature of the air. 
+	Length:5
+	Scale:10
+	Unit:Degrees Celsius
+	Default Value:+9999
+
+Q: AIR-TEMPERATURE-OBSERVATION air temperature quality code
+
+	The code that denotes a quality status of an AIR-TEMPERATURE-OBSERVATION. 
+	
+	Length:1
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	A: Data value flagged as suspect, but accepted as good value
+	C: Temperature and dewpoint received from Automated Weather Observing Systems (AWOS) are reported in whole degrees Celsius. Automated QC flags these values, but they are accepted as valid.
+	I: Data value not originally in data, but inserted by validator
+	M: Manual changes made to value based on information provided by NWS or FAA
+	P: Data value not originally flagged as suspect, but replaced by validator
+	R: Data value replaced with value computed by NCDC software
+	U: Data value replaced with edited value
+	
+
+DEWPT: AIR-TEMPERATURE-OBSERVATION-DEWPOINT header
+	Length:0
+
+DEWPT: AIR-TEMPERATURE-OBSERVATION-DEWPOINT temperature
+
+	The temperature to which a given parcel of air must be cooled at constant 
+	pressure and water vapor content in order for saturation to occur. 
+	Length:5
+	Scale:10
+	Unit:Degrees Celsius
+	Default Value:+9999
+
+Q: AIR-TEMPERATURE-OBSERVATION-DEWPOINT quality code
+
+	The code that denotes a quality status of the reported dew point temperature. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	A: Data value flagged as suspect, but accepted as good value
+	C: Temperature and dewpoint received from Automated Weather Observing Systems (AWOS) are reported in whole degrees Celsius. Automated QC flags these values, but they are accepted as valid.
+	I: Data value not originally in data, but inserted by validator
+	M: Manual changes made to value based on information provided by NWS or FAA
+	P: Data value not originally flagged as suspect, but replaced by validator
+	R: Data value replaced with value computed by NCDC software
+	U: Data value replaced with edited value
+	
+
+SLP: ATMOSPHERIC-PRESSURE-OBSERVATION header
+	Length:0
+
+SLP: ATMOSPHERIC-PRESSURE-OBSERVATION sea level pressure
+
+	The air pressure relative to Mean Sea Level (MSL). 
+	Length:5
+	Scale:10
+	Unit:Hectopascals
+	Default Value:99999
+
+Q: ATMOSPHERIC-PRESSURE-OBSERVATION sea level pressure quality code
+
+	The code that denotes a quality status of the sea level pressure of an 
+	ATMOSPHERIC-PRESSURE-OBSERVATION. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WX-A: PRESENT-WEATHER-OBSERVATION automated header
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION automated atmospheric condition code
+
+	The code that denotes a specific type of weather reported by an automated 
+	device. 
+	Length:2
+	Table of Values:
+
+	00: No significant weather observed
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged during the past hour
+	03: Clouds generally forming or developing during the past hour
+	04: Haze, smoke, or dust in suspension in the air, visibility equal to or greater than 1km
+	05: Smoke
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	10: Mist
+	11: Diamond dust
+	12: Distant lightning
+	18: Squalls
+	20: Fog
+	21: Precipitation
+	22: Drizzle (not freezing) or snow grains
+	23: Rain (not freezing)
+	24: Snow
+	25: Freezing drizzle or freezing rain
+	26: Thunderstorm (with or without precipitation)
+	27: Blowing or drifting snow or sand
+	28: Blowing or drifting snow or sand, visibility equal to or greater than 1 km
+	29: Blowing or drifting snow or sand, visibility less than 1 km
+	30: Fog
+	31: Fog or ice fog in patches
+	32: Fog or ice fog, has become thinner during the past hour
+	33: Fog or ice fog, no appreciable change during the past hour
+	34: Fog or ice fog, has begun or become thicker during the past hour
+	35: Fog, depositing rime
+	40: Precipitation
+	41: Precipitation, slight or moderate
+	42: Precipitation, heavy
+	43: Liquid precipitation, slight or moderate
+	44: Liquid precipitation, heavy
+	45: Solid precipitation, slight or moderate
+	46: Solid precipitation, heavy
+	47: Freezing precipitation, slight or moderate
+	48: Freezing precipitation, heavy
+	50: Drizzle
+	51: Drizzle, not freezing, slight
+	52: Drizzle, not freezing, moderate
+	53: Drizzle, not freezing, heavy
+	54: Drizzle, freezing, slight
+	55: Drizzle, freezing, moderate
+	56: Drizzle, freezing, heavy
+	57: Drizzle and rain, slight
+	58: Drizzle and rain, moderate or heavy
+	60: Rain
+	61: Rain, not freezing, slight
+	62: Rain, not freezing, moderate
+	63: Rain, not freezing, heavy
+	64: Rain, freezing, slight
+	65: Rain, freezing, moderate
+	66: Rain, freezing, heavy
+	67: Rain or drizzle and snow, slight
+	68: Rain or drizzle and snow, moderate or heavy
+	70: Snow
+	71: Snow, slight
+	72: Snow, moderate
+	73: Snow, heavy
+	74: Ice pellets, slight
+	75: Ice pellets, moderate
+	76: Ice pellets, heavy
+	77: Snow Grains
+	78: Ice Crystals
+	80: Showers or intermittent precipitation
+	81: Rain showers or intermittent rain, slight
+	82: Rain showers or intermittent rain, moderate
+	83: Rain showers or intermittent rain, heavy
+	84: Rain showers or intermittent rain, violent
+	85: Snow showers or intermittent rain, slight
+	86: Snow showers or intermittent rain, moderate
+	87: Snow showers or intermittent rain, heavy
+	89: Hail
+	90: Thunderstorm
+	91: Thunderstorm, slight or moderate, with no precipitation
+	92: Thunderstorm, slight or moderate, with rain showers and/or snow showers
+	93: Thunderstorm, slight or moderate, with hail
+	94: Thunderstorm, heavy, with no precipitation
+	95: Thunderstorm, heavy, with rain showers and/or snow
+	96: Thunderstorm, heavy, with hail
+	99: Tornado
+	
+
+Q: PRESENT-WEATHER-OBSERVATION automated quality automated atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from an automated station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+PSWX: PAST-WEATHER-OBSERVATION summary of day header
+	Length:3
+
+WX: PAST-WEATHER-OBSERVATION summary of day Atmospheric condition code
+
+	The code that denotes a specific type of past weather observed. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: none to report
+	01: fog
+	02: fog reducing visibility to 1/4 mile or less
+	03: thunder
+	04: ice pellets
+	05: hail
+	06: glaze or rime
+	07: blowing dust or sand, visibility  mile or less
+	08: smoke or haze
+	09: blowing snow
+	10: tornado
+	11: high or damaging winds
+	
+
+Q: PAST-WEATHER-OBSERVATION summary of day Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION summary of day Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION summary of day Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PSWX: PAST-WEATHER-OBSERVATION summary of day header #2
+	Length:3
+
+WX: PAST-WEATHER-OBSERVATION summary of day #2 Atmospheric condition code
+
+	The code that denotes a specific type of past weather observed. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: none to report
+	01: fog
+	02: fog reducing visibility to 1/4 mile or less
+	03: thunder
+	04: ice pellets
+	05: hail
+	06: glaze or rime
+	07: blowing dust or sand, visibility  mile or less
+	08: smoke or haze
+	09: blowing snow
+	10: tornado
+	11: high or damaging winds
+	
+
+Q: PAST-WEATHER-OBSERVATION summary of day #2 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION summary of day #2 Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION summary of day #2 Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PSWX: PAST-WEATHER-OBSERVATION summary of day header #3
+	Length:3
+
+WX: PAST-WEATHER-OBSERVATION summary of day #3 Atmospheric condition code
+
+	The code that denotes a specific type of past weather observed. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: none to report
+	01: fog
+	02: fog reducing visibility to 1/4 mile or less
+	03: thunder
+	04: ice pellets
+	05: hail
+	06: glaze or rime
+	07: blowing dust or sand, visibility  mile or less
+	08: smoke or haze
+	09: blowing snow
+	10: tornado
+	11: high or damaging winds
+	
+
+Q: PAST-WEATHER-OBSERVATION summary of day #3 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION summary of day #3 Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION summary of day #3 Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PSWX: PAST-WEATHER-OBSERVATION summary of day header #4
+	Length:3
+
+WX: PAST-WEATHER-OBSERVATION summary of day #4 Atmospheric condition code
+
+	The code that denotes a specific type of past weather observed. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: none to report
+	01: fog
+	02: fog reducing visibility to 1/4 mile or less
+	03: thunder
+	04: ice pellets
+	05: hail
+	06: glaze or rime
+	07: blowing dust or sand, visibility  mile or less
+	08: smoke or haze
+	09: blowing snow
+	10: tornado
+	11: high or damaging winds
+	
+
+Q: PAST-WEATHER-OBSERVATION summary of day #4 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION summary of day #4 Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION summary of day #4 Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PSWX: PAST-WEATHER-OBSERVATION summary of day header #5
+	Length:3
+
+WX: PAST-WEATHER-OBSERVATION summary of day #5 Atmospheric condition code
+
+	The code that denotes a specific type of past weather observed. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: none to report
+	01: fog
+	02: fog reducing visibility to 1/4 mile or less
+	03: thunder
+	04: ice pellets
+	05: hail
+	06: glaze or rime
+	07: blowing dust or sand, visibility  mile or less
+	08: smoke or haze
+	09: blowing snow
+	10: tornado
+	11: high or damaging winds
+	
+
+Q: PAST-WEATHER-OBSERVATION summary of day #5 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION summary of day #5 Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION summary of day #5 Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PSWX: PAST-WEATHER-OBSERVATION summary of day header #6
+	Length:3
+
+WX: PAST-WEATHER-OBSERVATION summary of day #6 Atmospheric condition code
+
+	The code that denotes a specific type of past weather observed. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: none to report
+	01: fog
+	02: fog reducing visibility to 1/4 mile or less
+	03: thunder
+	04: ice pellets
+	05: hail
+	06: glaze or rime
+	07: blowing dust or sand, visibility  mile or less
+	08: smoke or haze
+	09: blowing snow
+	10: tornado
+	11: high or damaging winds
+	
+
+Q: PAST-WEATHER-OBSERVATION summary of day #6 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION summary of day #6 Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION summary of day #6 Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+PSWX-M: PAST-WEATHER-OBSERVATION manual header
+	Length:3
+
+C: PAST-WEATHER-OBSERVATION manual atmospheric condition code
+
+	The code that denotes a specific type of past weather observed manually. 
+	
+	Length:1
+	Table of Values:
+
+	0: Cloud covering 1/2 or less of the sky throughout the appropriate period
+	1: Cloud covering more than 1/2 of the sky during part of the appropriate period and covering1/2 or less during part of the period
+	2: Cloud covering more than 1/2 of the sky throughout the appropriate period
+	3: Sandstorm, duststorm or blowing snow
+	4: Fog or ice fog or thick haze
+	5: Drizzle
+	6: Rain
+	7: Snow, or rain and snow mixed
+	8: Shower(s)
+	9: Thunderstorm(s) with or without precipitation
+	
+
+Q: PAST-WEATHER-OBSERVATION manual Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION manual Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION manual Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+PSWX-M: PAST-WEATHER-OBSERVATION manual header #2
+	Length:3
+
+C: PAST-WEATHER-OBSERVATION manual #2 atmospheric condition code
+
+	The code that denotes a specific type of past weather observed manually. 
+	
+	Length:1
+	Table of Values:
+
+	0: Cloud covering 1/2 or less of the sky throughout the appropriate period
+	1: Cloud covering more than 1/2 of the sky during part of the appropriate period and covering1/2 or less during part of the period
+	2: Cloud covering more than 1/2 of the sky throughout the appropriate period
+	3: Sandstorm, duststorm or blowing snow
+	4: Fog or ice fog or thick haze
+	5: Drizzle
+	6: Rain
+	7: Snow, or rain and snow mixed
+	8: Shower(s)
+	9: Thunderstorm(s) with or without precipitation
+	
+
+Q: PAST-WEATHER-OBSERVATION manual #2 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from a manual 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION manual #2 Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION manual #2 Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+PSWX-A: PAST-WEATHER-OBSERVATION automated header
+	Length:3
+
+C: PAST-WEATHER-OBSERVATION automated atmospheric condition code
+
+	The code that denotes a specific type of past weather reported by an automated 
+	device. 
+	Length:1
+	Table of Values:
+
+	0: No significant weather observed
+	1: Visibility reduced
+	2: Blowing phenomena, visibility reduced
+	3: Fog
+	4: Precipitation
+	5: Drizzle
+	6: Rain
+	7: Snow or ice pellets
+	8: Showers or intermittent precipitation
+	9: Thunderstorm
+	
+
+Q: PAST-WEATHER-OBSERVATION automated Quality automated atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from an automated station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION automated Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION automated Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+PSWX-A: PAST-WEATHER-OBSERVATION automated header #2
+	Length:3
+
+C: PAST-WEATHER-OBSERVATION automated #2 atmospheric condition code
+
+	The code that denotes a specific type of past weather reported by an automated 
+	device. 
+	Length:1
+	Table of Values:
+
+	0: No significant weather observed
+	1: Visibility reduced
+	2: Blowing phenomena, visibility reduced
+	3: Fog
+	4: Precipitation
+	5: Drizzle
+	6: Rain
+	7: Snow or ice pellets
+	8: Showers or intermittent precipitation
+	9: Thunderstorm
+	
+
+Q: PAST-WEATHER-OBSERVATION automated #2 Quality automated atmospheric condition code
+
+	The code that denotes a quality status of a reported past weather observation 
+	from an automated station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+PR: PAST-WEATHER-OBSERVATION automated #2 Period quantity
+
+	The quantity of time over which a PAST-WEATHER-OBSERVATION occurred. 
+	Length:2
+	Unit:Hours
+	Default Value:99
+
+Q: PAST-WEATHER-OBSERVATION automated #2 Period quality code
+
+	The code that denotes a quality status of a reported past weather period. 
+	
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+CLOUD LAYER: SKY-COVER-LAYER header
+	Length:3
+
+CV: SKY-COVER-LAYER coverage code
+
+	The code that denotes the fraction of the total celestial dome covered 
+	by a SKY-COVER-LAYER.               Note:  This is for a discrete cloud 
+	layer, as opposed to the cloud later summation data in the GD1-GD6 section. 
+	
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: None, SKC or CLR
+	01: One okta - 1/10 or less but not zero
+	02: Two oktas - 2/10 - 3/10, or FEW
+	03: Three oktas - 4/10
+	04: Four oktas - 5/10, or SCT
+	05: Five oktas - 6/10
+	06: Six oktas - 7/10 - 8/10
+	07: Seven oktas - 9/10 or more but not 10/10, or BKN
+	08: Eight oktas - 10/10, or OVC
+	09: Sky obscured, or cloud amount cannot be estimated
+	10: Partial obscuration
+	
+
+Q: SKY-COVER-LAYER coverage quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	coverage. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, from NCDC SURFACE HOURLY
+	5: Passed all quality control checks, from NCDC SURFACE HOURLY
+	6: Suspect, from NCDC SURFACE HOURLY
+	7: Erroneous, from NCDC SURFACE HOURLY
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+BASEH: SKY-COVER-LAYER base height dimension
+
+	The height relative to a VERTICAL-REFERENCE-DATUM of the lowest surface 
+	of a cloud. 
+	Length:6
+	Scale:1
+	Unit:Meters
+	Default Value:+99999
+
+Q: SKY-COVER-LAYER base height quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	base height. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+TP: SKY-COVER-LAYER cloud type code
+
+	The code that denotes the classification of the clouds that comprise a 
+	SKY-COVER-LAYER. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: Cirrus (Ci)
+	01: Cirrocumulus (Cc)
+	02: Cirrostratus (Cs)
+	03: Altocumulus (Ac)
+	04: Altostratus (As)
+	05: Nimbostratus (Ns)
+	06: Stratocumulus (Sc)
+	07: Stratus (St)
+	08: Cumulus (Cu)
+	09: Cumulonimbus (Cb)
+	10: Cloud not visible owing to darkness, fog, duststorm, sandstorm, or other analogous phenomena / sky obscured
+	11: Not used
+	12: Towering Cumulus (Tcu)
+	13: Stratus fractus (Stfra)
+	14: Stratocumulus Lenticular (Scsl)
+	15: Cumulus Fractus (Cufra)
+	16: Cumulonimbus Mammatus (Cbmam)
+	17: Altocumulus Lenticular (Acsl)
+	18: Altocumulus Castellanus (Accas)
+	19: Altocumulus Mammatus (Acmam)
+	20: Cirrocumulus Lenticular (Ccsl)
+	21: Cirrus and/or Cirrocumulus
+	22: Stratus and/or Fracto-stratus
+	23: Cumulus and/or Fracto-cumulus
+	
+
+Q: SKY-COVER-LAYER cloud type quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	cloud type. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+CLOUD LAYER: SKY-COVER-LAYER header #2
+	Length:3
+
+CV: SKY-COVER-LAYER #2 coverage code
+
+	The code that denotes the fraction of the total celestial dome covered 
+	by a SKY-COVER-LAYER.               Note:  This is for a discrete cloud 
+	layer, as opposed to the cloud later summation data in the GD1-GD6 section. 
+	
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: None, SKC or CLR
+	01: One okta - 1/10 or less but not zero
+	02: Two oktas - 2/10 - 3/10, or FEW
+	03: Three oktas - 4/10
+	04: Four oktas - 5/10, or SCT
+	05: Five oktas - 6/10
+	06: Six oktas - 7/10 - 8/10
+	07: Seven oktas - 9/10 or more but not 10/10, or BKN
+	08: Eight oktas - 10/10, or OVC
+	09: Sky obscured, or cloud amount cannot be estimated
+	10: Partial obscuration
+	
+
+Q: SKY-COVER-LAYER #2 coverage quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	coverage. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, from NCDC SURFACE HOURLY
+	5: Passed all quality control checks, from NCDC SURFACE HOURLY
+	6: Suspect, from NCDC SURFACE HOURLY
+	7: Erroneous, from NCDC SURFACE HOURLY
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+BASEH: SKY-COVER-LAYER #2 base height dimension
+
+	The height relative to a VERTICAL-REFERENCE-DATUM of the lowest surface 
+	of a cloud. 
+	Length:6
+	Scale:1
+	Unit:Meters
+	Default Value:+99999
+
+Q: SKY-COVER-LAYER #2 base height quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	base height. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+TP: SKY-COVER-LAYER #2 cloud type code
+
+	The code that denotes the classification of the clouds that comprise a 
+	SKY-COVER-LAYER. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: Cirrus (Ci)
+	01: Cirrocumulus (Cc)
+	02: Cirrostratus (Cs)
+	03: Altocumulus (Ac)
+	04: Altostratus (As)
+	05: Nimbostratus (Ns)
+	06: Stratocumulus (Sc)
+	07: Stratus (St)
+	08: Cumulus (Cu)
+	09: Cumulonimbus (Cb)
+	10: Cloud not visible owing to darkness, fog, duststorm, sandstorm, or other analogous phenomena / sky obscured
+	11: Not used
+	12: Towering Cumulus (Tcu)
+	13: Stratus fractus (Stfra)
+	14: Stratocumulus Lenticular (Scsl)
+	15: Cumulus Fractus (Cufra)
+	16: Cumulonimbus Mammatus (Cbmam)
+	17: Altocumulus Lenticular (Acsl)
+	18: Altocumulus Castellanus (Accas)
+	19: Altocumulus Mammatus (Acmam)
+	20: Cirrocumulus Lenticular (Ccsl)
+	21: Cirrus and/or Cirrocumulus
+	22: Stratus and/or Fracto-stratus
+	23: Cumulus and/or Fracto-cumulus
+	
+
+Q: SKY-COVER-LAYER #2 cloud type quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	cloud type. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+CLOUD LAYER: SKY-COVER-LAYER header #3
+	Length:3
+
+CV: SKY-COVER-LAYER #3 coverage code
+
+	The code that denotes the fraction of the total celestial dome covered 
+	by a SKY-COVER-LAYER.               Note:  This is for a discrete cloud 
+	layer, as opposed to the cloud later summation data in the GD1-GD6 section. 
+	
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: None, SKC or CLR
+	01: One okta - 1/10 or less but not zero
+	02: Two oktas - 2/10 - 3/10, or FEW
+	03: Three oktas - 4/10
+	04: Four oktas - 5/10, or SCT
+	05: Five oktas - 6/10
+	06: Six oktas - 7/10 - 8/10
+	07: Seven oktas - 9/10 or more but not 10/10, or BKN
+	08: Eight oktas - 10/10, or OVC
+	09: Sky obscured, or cloud amount cannot be estimated
+	10: Partial obscuration
+	
+
+Q: SKY-COVER-LAYER #3 coverage quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	coverage. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, from NCDC SURFACE HOURLY
+	5: Passed all quality control checks, from NCDC SURFACE HOURLY
+	6: Suspect, from NCDC SURFACE HOURLY
+	7: Erroneous, from NCDC SURFACE HOURLY
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+BASEH: SKY-COVER-LAYER #3 base height dimension
+
+	The height relative to a VERTICAL-REFERENCE-DATUM of the lowest surface 
+	of a cloud. 
+	Length:6
+	Scale:1
+	Unit:Meters
+	Default Value:+99999
+
+Q: SKY-COVER-LAYER #3 base height quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	base height. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+TP: SKY-COVER-LAYER #3 cloud type code
+
+	The code that denotes the classification of the clouds that comprise a 
+	SKY-COVER-LAYER. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: Cirrus (Ci)
+	01: Cirrocumulus (Cc)
+	02: Cirrostratus (Cs)
+	03: Altocumulus (Ac)
+	04: Altostratus (As)
+	05: Nimbostratus (Ns)
+	06: Stratocumulus (Sc)
+	07: Stratus (St)
+	08: Cumulus (Cu)
+	09: Cumulonimbus (Cb)
+	10: Cloud not visible owing to darkness, fog, duststorm, sandstorm, or other analogous phenomena / sky obscured
+	11: Not used
+	12: Towering Cumulus (Tcu)
+	13: Stratus fractus (Stfra)
+	14: Stratocumulus Lenticular (Scsl)
+	15: Cumulus Fractus (Cufra)
+	16: Cumulonimbus Mammatus (Cbmam)
+	17: Altocumulus Lenticular (Acsl)
+	18: Altocumulus Castellanus (Accas)
+	19: Altocumulus Mammatus (Acmam)
+	20: Cirrocumulus Lenticular (Ccsl)
+	21: Cirrus and/or Cirrocumulus
+	22: Stratus and/or Fracto-stratus
+	23: Cumulus and/or Fracto-cumulus
+	
+
+Q: SKY-COVER-LAYER #3 cloud type quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	cloud type. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+CLOUD LAYER: SKY-COVER-LAYER header #4
+	Length:3
+
+CV: SKY-COVER-LAYER #4 coverage code
+
+	The code that denotes the fraction of the total celestial dome covered 
+	by a SKY-COVER-LAYER.               Note:  This is for a discrete cloud 
+	layer, as opposed to the cloud later summation data in the GD1-GD6 section. 
+	
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: None, SKC or CLR
+	01: One okta - 1/10 or less but not zero
+	02: Two oktas - 2/10 - 3/10, or FEW
+	03: Three oktas - 4/10
+	04: Four oktas - 5/10, or SCT
+	05: Five oktas - 6/10
+	06: Six oktas - 7/10 - 8/10
+	07: Seven oktas - 9/10 or more but not 10/10, or BKN
+	08: Eight oktas - 10/10, or OVC
+	09: Sky obscured, or cloud amount cannot be estimated
+	10: Partial obscuration
+	
+
+Q: SKY-COVER-LAYER #4 coverage quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	coverage. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, from NCDC SURFACE HOURLY
+	5: Passed all quality control checks, from NCDC SURFACE HOURLY
+	6: Suspect, from NCDC SURFACE HOURLY
+	7: Erroneous, from NCDC SURFACE HOURLY
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+BASEH: SKY-COVER-LAYER #4 base height dimension
+
+	The height relative to a VERTICAL-REFERENCE-DATUM of the lowest surface 
+	of a cloud. 
+	Length:6
+	Scale:1
+	Unit:Meters
+	Default Value:+99999
+
+Q: SKY-COVER-LAYER #4 base height quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	base height. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+TP: SKY-COVER-LAYER #4 cloud type code
+
+	The code that denotes the classification of the clouds that comprise a 
+	SKY-COVER-LAYER. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: Cirrus (Ci)
+	01: Cirrocumulus (Cc)
+	02: Cirrostratus (Cs)
+	03: Altocumulus (Ac)
+	04: Altostratus (As)
+	05: Nimbostratus (Ns)
+	06: Stratocumulus (Sc)
+	07: Stratus (St)
+	08: Cumulus (Cu)
+	09: Cumulonimbus (Cb)
+	10: Cloud not visible owing to darkness, fog, duststorm, sandstorm, or other analogous phenomena / sky obscured
+	11: Not used
+	12: Towering Cumulus (Tcu)
+	13: Stratus fractus (Stfra)
+	14: Stratocumulus Lenticular (Scsl)
+	15: Cumulus Fractus (Cufra)
+	16: Cumulonimbus Mammatus (Cbmam)
+	17: Altocumulus Lenticular (Acsl)
+	18: Altocumulus Castellanus (Accas)
+	19: Altocumulus Mammatus (Acmam)
+	20: Cirrocumulus Lenticular (Ccsl)
+	21: Cirrus and/or Cirrocumulus
+	22: Stratus and/or Fracto-stratus
+	23: Cumulus and/or Fracto-cumulus
+	
+
+Q: SKY-COVER-LAYER #4 cloud type quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	cloud type. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+CLOUD LAYER: SKY-COVER-LAYER header #5
+	Length:3
+
+CV: SKY-COVER-LAYER #5 coverage code
+
+	The code that denotes the fraction of the total celestial dome covered 
+	by a SKY-COVER-LAYER.               Note:  This is for a discrete cloud 
+	layer, as opposed to the cloud later summation data in the GD1-GD6 section. 
+	
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: None, SKC or CLR
+	01: One okta - 1/10 or less but not zero
+	02: Two oktas - 2/10 - 3/10, or FEW
+	03: Three oktas - 4/10
+	04: Four oktas - 5/10, or SCT
+	05: Five oktas - 6/10
+	06: Six oktas - 7/10 - 8/10
+	07: Seven oktas - 9/10 or more but not 10/10, or BKN
+	08: Eight oktas - 10/10, or OVC
+	09: Sky obscured, or cloud amount cannot be estimated
+	10: Partial obscuration
+	
+
+Q: SKY-COVER-LAYER #5 coverage quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	coverage. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, from NCDC SURFACE HOURLY
+	5: Passed all quality control checks, from NCDC SURFACE HOURLY
+	6: Suspect, from NCDC SURFACE HOURLY
+	7: Erroneous, from NCDC SURFACE HOURLY
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+BASEH: SKY-COVER-LAYER #5 base height dimension
+
+	The height relative to a VERTICAL-REFERENCE-DATUM of the lowest surface 
+	of a cloud. 
+	Length:6
+	Scale:1
+	Unit:Meters
+	Default Value:+99999
+
+Q: SKY-COVER-LAYER #5 base height quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	base height. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+TP: SKY-COVER-LAYER #5 cloud type code
+
+	The code that denotes the classification of the clouds that comprise a 
+	SKY-COVER-LAYER. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: Cirrus (Ci)
+	01: Cirrocumulus (Cc)
+	02: Cirrostratus (Cs)
+	03: Altocumulus (Ac)
+	04: Altostratus (As)
+	05: Nimbostratus (Ns)
+	06: Stratocumulus (Sc)
+	07: Stratus (St)
+	08: Cumulus (Cu)
+	09: Cumulonimbus (Cb)
+	10: Cloud not visible owing to darkness, fog, duststorm, sandstorm, or other analogous phenomena / sky obscured
+	11: Not used
+	12: Towering Cumulus (Tcu)
+	13: Stratus fractus (Stfra)
+	14: Stratocumulus Lenticular (Scsl)
+	15: Cumulus Fractus (Cufra)
+	16: Cumulonimbus Mammatus (Cbmam)
+	17: Altocumulus Lenticular (Acsl)
+	18: Altocumulus Castellanus (Accas)
+	19: Altocumulus Mammatus (Acmam)
+	20: Cirrocumulus Lenticular (Ccsl)
+	21: Cirrus and/or Cirrocumulus
+	22: Stratus and/or Fracto-stratus
+	23: Cumulus and/or Fracto-cumulus
+	
+
+Q: SKY-COVER-LAYER #5 cloud type quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	cloud type. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+CLOUD LAYER: SKY-COVER-LAYER header #6
+	Length:3
+
+CV: SKY-COVER-LAYER #6 coverage code
+
+	The code that denotes the fraction of the total celestial dome covered 
+	by a SKY-COVER-LAYER.               Note:  This is for a discrete cloud 
+	layer, as opposed to the cloud later summation data in the GD1-GD6 section. 
+	
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: None, SKC or CLR
+	01: One okta - 1/10 or less but not zero
+	02: Two oktas - 2/10 - 3/10, or FEW
+	03: Three oktas - 4/10
+	04: Four oktas - 5/10, or SCT
+	05: Five oktas - 6/10
+	06: Six oktas - 7/10 - 8/10
+	07: Seven oktas - 9/10 or more but not 10/10, or BKN
+	08: Eight oktas - 10/10, or OVC
+	09: Sky obscured, or cloud amount cannot be estimated
+	10: Partial obscuration
+	
+
+Q: SKY-COVER-LAYER #6 coverage quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	coverage. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, from NCDC SURFACE HOURLY
+	5: Passed all quality control checks, from NCDC SURFACE HOURLY
+	6: Suspect, from NCDC SURFACE HOURLY
+	7: Erroneous, from NCDC SURFACE HOURLY
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+BASEH: SKY-COVER-LAYER #6 base height dimension
+
+	The height relative to a VERTICAL-REFERENCE-DATUM of the lowest surface 
+	of a cloud. 
+	Length:6
+	Scale:1
+	Unit:Meters
+	Default Value:+99999
+
+Q: SKY-COVER-LAYER #6 base height quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	base height. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+TP: SKY-COVER-LAYER #6 cloud type code
+
+	The code that denotes the classification of the clouds that comprise a 
+	SKY-COVER-LAYER. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: Cirrus (Ci)
+	01: Cirrocumulus (Cc)
+	02: Cirrostratus (Cs)
+	03: Altocumulus (Ac)
+	04: Altostratus (As)
+	05: Nimbostratus (Ns)
+	06: Stratocumulus (Sc)
+	07: Stratus (St)
+	08: Cumulus (Cu)
+	09: Cumulonimbus (Cb)
+	10: Cloud not visible owing to darkness, fog, duststorm, sandstorm, or other analogous phenomena / sky obscured
+	11: Not used
+	12: Towering Cumulus (Tcu)
+	13: Stratus fractus (Stfra)
+	14: Stratocumulus Lenticular (Scsl)
+	15: Cumulus Fractus (Cufra)
+	16: Cumulonimbus Mammatus (Cbmam)
+	17: Altocumulus Lenticular (Acsl)
+	18: Altocumulus Castellanus (Accas)
+	19: Altocumulus Mammatus (Acmam)
+	20: Cirrocumulus Lenticular (Ccsl)
+	21: Cirrus and/or Cirrocumulus
+	22: Stratus and/or Fracto-stratus
+	23: Cumulus and/or Fracto-cumulus
+	
+
+Q: SKY-COVER-LAYER #6 cloud type quality code
+
+	The code that denotes a quality status of the reported SKY-COVER-LAYER 
+	cloud type. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , from NCDC Surface Hourly
+	5: Passed all quality control checks, from NCDC Surface Hourly
+	6: Suspect, from NCDC Surface Hourly
+	7: Erroneous, from NCDC Surface Hourly
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+HAIL: HAIL header
+	Length:3
+
+DIA: HAIL size
+
+	The diameter of the largest hailstone observed. 
+	Length:3
+	Scale:10
+	Unit:Centimeters
+	Default Value:999
+
+Q: HAIL size quality code
+
+	The code that denotes a quality status of the reported HAIL size. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	9: Passed gross limits check if element is present
+	
+
+WXV: PRESENT-WEATHER-IN-VICINITY-OBSERVATION header
+	Length:3
+
+WX: PRESENT-WEATHER-IN-VICINITY-OBSERVATION atmospheric condition code
+
+	The code that denotes a specific type of weather observed between 5 and 
+	10 statute miles of the station at the time of observation.  Observed at 
+	selected stations from July 1, 1996 to present. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: No observation
+	01: Thunderstorm in vicinity
+	02: Showers in vicinity
+	03: Sandstorm in vicinity
+	04: Sand / dust whirls in vicinity
+	05: Duststorm in vicinity
+	06: Blowing snow in vicinity
+	07: Blowing sand in vicinity
+	08: Blowing dust in vicinity
+	09: Fog in vicinity
+	
+
+Q: PRESENT-WEATHER-IN-VICINITY-OBSERVATION quality atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather in 
+	vicinity observation from a station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WXV: PRESENT-WEATHER-IN-VICINITY-OBSERVATION header #2
+	Length:3
+
+WX: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #2 atmospheric condition code
+
+	The code that denotes a specific type of weather observed between 5 and 
+	10 statute miles of the station at the time of observation.  Observed at 
+	selected stations from July 1, 1996 to present. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: No observation
+	01: Thunderstorm in vicinity
+	02: Showers in vicinity
+	03: Sandstorm in vicinity
+	04: Sand / dust whirls in vicinity
+	05: Duststorm in vicinity
+	06: Blowing snow in vicinity
+	07: Blowing sand in vicinity
+	08: Blowing dust in vicinity
+	09: Fog in vicinity
+	
+
+Q: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #2 quality atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather in 
+	vicinity observation from a station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WXV: PRESENT-WEATHER-IN-VICINITY-OBSERVATION header #3
+	Length:3
+
+WX: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #3 atmospheric condition code
+
+	The code that denotes a specific type of weather observed between 5 and 
+	10 statute miles of the station at the time of observation.  Observed at 
+	selected stations from July 1, 1996 to present. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: No observation
+	01: Thunderstorm in vicinity
+	02: Showers in vicinity
+	03: Sandstorm in vicinity
+	04: Sand / dust whirls in vicinity
+	05: Duststorm in vicinity
+	06: Blowing snow in vicinity
+	07: Blowing sand in vicinity
+	08: Blowing dust in vicinity
+	09: Fog in vicinity
+	
+
+Q: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #3 quality atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather in 
+	vicinity observation from a station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WXV: PRESENT-WEATHER-IN-VICINITY-OBSERVATION header #4
+	Length:3
+
+WX: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #4 atmospheric condition code
+
+	The code that denotes a specific type of weather observed between 5 and 
+	10 statute miles of the station at the time of observation.  Observed at 
+	selected stations from July 1, 1996 to present. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: No observation
+	01: Thunderstorm in vicinity
+	02: Showers in vicinity
+	03: Sandstorm in vicinity
+	04: Sand / dust whirls in vicinity
+	05: Duststorm in vicinity
+	06: Blowing snow in vicinity
+	07: Blowing sand in vicinity
+	08: Blowing dust in vicinity
+	09: Fog in vicinity
+	
+
+Q: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #4 quality atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather in 
+	vicinity observation from a station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WXV: PRESENT-WEATHER-IN-VICINITY-OBSERVATION header #5
+	Length:3
+
+WX: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #5 atmospheric condition code
+
+	The code that denotes a specific type of weather observed between 5 and 
+	10 statute miles of the station at the time of observation.  Observed at 
+	selected stations from July 1, 1996 to present. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: No observation
+	01: Thunderstorm in vicinity
+	02: Showers in vicinity
+	03: Sandstorm in vicinity
+	04: Sand / dust whirls in vicinity
+	05: Duststorm in vicinity
+	06: Blowing snow in vicinity
+	07: Blowing sand in vicinity
+	08: Blowing dust in vicinity
+	09: Fog in vicinity
+	
+
+Q: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #5 quality atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather in 
+	vicinity observation from a station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WXV: PRESENT-WEATHER-IN-VICINITY-OBSERVATION header #6
+	Length:3
+
+WX: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #6 atmospheric condition code
+
+	The code that denotes a specific type of weather observed between 5 and 
+	10 statute miles of the station at the time of observation.  Observed at 
+	selected stations from July 1, 1996 to present. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: No observation
+	01: Thunderstorm in vicinity
+	02: Showers in vicinity
+	03: Sandstorm in vicinity
+	04: Sand / dust whirls in vicinity
+	05: Duststorm in vicinity
+	06: Blowing snow in vicinity
+	07: Blowing sand in vicinity
+	08: Blowing dust in vicinity
+	09: Fog in vicinity
+	
+
+Q: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #6 quality atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather in 
+	vicinity observation from a station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WXV: PRESENT-WEATHER-IN-VICINITY-OBSERVATION header #7
+	Length:3
+
+WX: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #7 atmospheric condition code
+
+	The code that denotes a specific type of weather observed between 5 and 
+	10 statute miles of the station at the time of observation.  Observed at 
+	selected stations from July 1, 1996 to present. 
+	Length:2
+	Default Value:99
+	Table of Values:
+
+	00: No observation
+	01: Thunderstorm in vicinity
+	02: Showers in vicinity
+	03: Sandstorm in vicinity
+	04: Sand / dust whirls in vicinity
+	05: Duststorm in vicinity
+	06: Blowing snow in vicinity
+	07: Blowing sand in vicinity
+	08: Blowing dust in vicinity
+	09: Fog in vicinity
+	
+
+Q: PRESENT-WEATHER-IN-VICINITY-OBSERVATION #7 quality atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather in 
+	vicinity observation from a station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	
+
+WX-M: PRESENT-WEATHER-OBSERVATION manual header
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION manual atmospheric condition code
+
+	The code that denotes a specific type of weather observed manually. 
+	Length:2
+	Table of Values:
+
+	00: Cloud development not observed or not observable
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged
+	03: Clouds generally forming or developing
+	04: Visibility reduced by smoke, e.g. veldt or forest fires, industrial smoke or volcanic ashes
+	05: Haze
+	06: Widespread dust in suspension in the air, not raised by wind at or near the station at the time of observation
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	08: Well developed dust whirl(s) or sand whirl(s) seen at or near the station during the preceding or at the time of observation, but no duststorm or sandstorm
+	09: Duststorm or sandstorm within sight at the time of observation, or at the station during the preceding hour
+	10: Mist
+	11: Patches of shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	12: More or less continuous shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	13: Lightning visible, no thunder heard
+	14: Precipitation within sight, not reaching the ground or the surface of the sea
+	15: Precipitation within sight, reaching the ground or the surface of the sea, but distant, i.e., estimated to be more than 5 km from the station
+	16: Precipitation within sight, reaching the ground or the surface of the sea, near to, but not at the station
+	17: Thunderstorm, but no precipitation at the time of observation
+	18: Squalls at or within sight of the station during the preceding hour or at the time of observation
+	19: Funnel cloud(s) (Tornado cloud or waterspout) at or within sight of the station during the preceding
+	20: Drizzle (not freezing) or snow grains not falling as shower(s)
+	21: Rain (not freezing) not falling as shower(s)
+	22: Snow not falling as shower(s)
+	23: Rain and snow or ice pellets not falling as shower(s)
+	24: Freezing drizzle or freezing rain not falling as shower(s)
+	25: Shower(s) of rain
+	26: Shower(s) of snow or of rain and snow
+	27: Shower(s) of hail (Hail, small hail, snow pellets), or rain and hail
+	28: Fog or ice fog
+	29: Thunderstorm (with or without precipitation)
+	30: Slight or moderate duststorm or sandstorm has decreased during the preceding hour
+	31: Slight or moderate duststorm or sandstorm no appreciable change during the preceding hour
+	32: Slight or moderate duststorm or sandstorm has begun or has increased during the preceding hour
+	33: Severe duststorm or sandstorm has decreased during the preceding hour
+	34: Severe duststorm or sandstorm no appreciable change during the preceding hour
+	35: Severe duststorm or sandstorm has begun or has increased during the preceding hour
+	36: Slight or moderate drifting snow generally low (below eye level)
+	37: Heavy drifting snow generally low (below eye level)
+	38: Slight or moderate blowing snow generally high (above eye level)
+	39: Heavy blowing snow generally high (above eye level)
+	40: Fog or ice fog at a distance at the time of observation, but not at the station during the preceding hour, the fog or ice fog extending to a level above that of the observer
+	41: Fog or ice fog in patches
+	42: Fog or ice fog, sky visible, has become thinner during the preceding hour
+	43: Fog or ice fog, sky invisible, has become thinner during the preceding hour
+	44: Fog or ice fog, sky visible, no appreciable change during the preceding hour
+	45: Fog or ice fog, sky invisible, no appreciable change during the preceding hour
+	46: Fog or ice fog, sky visible, has begun or has become thicker during the preceding hour
+	47: Fog or ice fog, sky invisible, has begun or has become thicker during the preceding hour
+	48: Fog, depositing rime, sky visible
+	49: Fog, depositing rime, sky invisible
+	50: Drizzle, not freezing, intermittent, slight at time of observation
+	51: Drizzle, not freezing, continuous, slight at time of observation
+	52: Drizzle, not freezing, intermittent, moderate at time of observation
+	53: Drizzle, not freezing, continuous, moderate at time of observation
+	54: Drizzle, not freezing, intermittent, heavy (dense) at time of observation
+	55: Drizzle, not freezing, continuous, heavy (dense) at time of observation
+	56: Drizzle, freezing, slight
+	57: Drizzle, freezing, moderate or heavy (dense)
+	58: Drizzle and rain, slight
+	59: Drizzle and rain, moderate or heavy
+	60: Rain, not freezing, intermittent, slight at time of observation
+	61: Rain, not freezing, continuous, slight at time of observation
+	62: Rain, not freezing, intermittent, moderate at time of observation
+	63: Rain, not freezing, continuous, moderate at time of observation
+	64: Rain, not freezing, intermittent, heavy at time of observation
+	65: Rain, not freezing, continuous, heavy at time of observation
+	66: Rain, freezing, slight
+	67: Rain, freezing, moderate or heavy
+	68: Rain or drizzle and snow, slight
+	69: Rain or drizzle and snow, moderate or heavy
+	70: Intermittent fall of snowflakes, slight at time of observation
+	71: Continuous fall of snowflakes, slight at time of observation
+	72: Intermittent fall of snowflakes, moderate at time of observation
+	73: Continuous fall of snowflakes, moderate at time of observation
+	74: Intermittent fall of snowflakes, heavy at time of observation
+	75: Continuous fall of snowflakes, heavy at time of observation
+	76: Diamond dust (with or without fog)
+	77: Snow grains (with or without fog)
+	78: Isolated star-like snow crystals (with or without fog)
+	79: Ice pellets
+	80: Rain shower(s), slight
+	81: Rain shower(s), moderate or heavy
+	82: Rain shower(s), violent
+	83: Shower(s) of rain and snow mixed, slight
+	84: Shower(s) of rain and snow mixed, moderate or heavy
+	85: Show shower(s), slight
+	86: Snow shower(s), moderate or heavy
+	87: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, slight
+	88: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, moderate or heavy
+	89: Shower(s) of hail (hail, small hail, snow pellets) , with or without rain or rain and snow mixed, not associated with thunder, slight
+	90: Shower(s) of hail (hail, small hail, snow pellets), with or without rain or rain and snow mixed, not associated with thunder, moderate or heavy
+	91: Slight rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	92: Moderate or heavy rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	93: Slight snow, or rain and snow mixed or hail (Hail, small hail, snow pellets), at time of observation, thunderstorm during the preceding hour but not at time of observation
+	94: Moderate or heavy snow, or rain and snow mixed or hail(Hail, small hail, snow pellets) at time of observation, thunderstorm during the preceding hour but not at time of observation
+	95: Thunderstorm, slight or moderate, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	96: Thunderstorm, slight or moderate, with hail (hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	97: Thunderstorm, heavy, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	98: Thunderstorm combined with duststorm or sandstorm at time of observation, thunderstorm at time of observation
+	99: Thunderstorm, heavy, with hail (Hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	
+
+Q: PRESENT-WEATHER-OBSERVATION manual Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-M: PRESENT-WEATHER-OBSERVATION manual header #2
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION manual #2 atmospheric condition code
+
+	The code that denotes a specific type of weather observed manually. 
+	Length:2
+	Table of Values:
+
+	00: Cloud development not observed or not observable
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged
+	03: Clouds generally forming or developing
+	04: Visibility reduced by smoke, e.g. veldt or forest fires, industrial smoke or volcanic ashes
+	05: Haze
+	06: Widespread dust in suspension in the air, not raised by wind at or near the station at the time of observation
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	08: Well developed dust whirl(s) or sand whirl(s) seen at or near the station during the preceding or at the time of observation, but no duststorm or sandstorm
+	09: Duststorm or sandstorm within sight at the time of observation, or at the station during the preceding hour
+	10: Mist
+	11: Patches of shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	12: More or less continuous shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	13: Lightning visible, no thunder heard
+	14: Precipitation within sight, not reaching the ground or the surface of the sea
+	15: Precipitation within sight, reaching the ground or the surface of the sea, but distant, i.e., estimated to be more than 5 km from the station
+	16: Precipitation within sight, reaching the ground or the surface of the sea, near to, but not at the station
+	17: Thunderstorm, but no precipitation at the time of observation
+	18: Squalls at or within sight of the station during the preceding hour or at the time of observation
+	19: Funnel cloud(s) (Tornado cloud or waterspout) at or within sight of the station during the preceding
+	20: Drizzle (not freezing) or snow grains not falling as shower(s)
+	21: Rain (not freezing) not falling as shower(s)
+	22: Snow not falling as shower(s)
+	23: Rain and snow or ice pellets not falling as shower(s)
+	24: Freezing drizzle or freezing rain not falling as shower(s)
+	25: Shower(s) of rain
+	26: Shower(s) of snow or of rain and snow
+	27: Shower(s) of hail (Hail, small hail, snow pellets), or rain and hail
+	28: Fog or ice fog
+	29: Thunderstorm (with or without precipitation)
+	30: Slight or moderate duststorm or sandstorm has decreased during the preceding hour
+	31: Slight or moderate duststorm or sandstorm no appreciable change during the preceding hour
+	32: Slight or moderate duststorm or sandstorm has begun or has increased during the preceding hour
+	33: Severe duststorm or sandstorm has decreased during the preceding hour
+	34: Severe duststorm or sandstorm no appreciable change during the preceding hour
+	35: Severe duststorm or sandstorm has begun or has increased during the preceding hour
+	36: Slight or moderate drifting snow generally low (below eye level)
+	37: Heavy drifting snow generally low (below eye level)
+	38: Slight or moderate blowing snow generally high (above eye level)
+	39: Heavy blowing snow generally high (above eye level)
+	40: Fog or ice fog at a distance at the time of observation, but not at the station during the preceding hour, the fog or ice fog extending to a level above that of the observer
+	41: Fog or ice fog in patches
+	42: Fog or ice fog, sky visible, has become thinner during the preceding hour
+	43: Fog or ice fog, sky invisible, has become thinner during the preceding hour
+	44: Fog or ice fog, sky visible, no appreciable change during the preceding hour
+	45: Fog or ice fog, sky invisible, no appreciable change during the preceding hour
+	46: Fog or ice fog, sky visible, has begun or has become thicker during the preceding hour
+	47: Fog or ice fog, sky invisible, has begun or has become thicker during the preceding hour
+	48: Fog, depositing rime, sky visible
+	49: Fog, depositing rime, sky invisible
+	50: Drizzle, not freezing, intermittent, slight at time of observation
+	51: Drizzle, not freezing, continuous, slight at time of observation
+	52: Drizzle, not freezing, intermittent, moderate at time of observation
+	53: Drizzle, not freezing, continuous, moderate at time of observation
+	54: Drizzle, not freezing, intermittent, heavy (dense) at time of observation
+	55: Drizzle, not freezing, continuous, heavy (dense) at time of observation
+	56: Drizzle, freezing, slight
+	57: Drizzle, freezing, moderate or heavy (dense)
+	58: Drizzle and rain, slight
+	59: Drizzle and rain, moderate or heavy
+	60: Rain, not freezing, intermittent, slight at time of observation
+	61: Rain, not freezing, continuous, slight at time of observation
+	62: Rain, not freezing, intermittent, moderate at time of observation
+	63: Rain, not freezing, continuous, moderate at time of observation
+	64: Rain, not freezing, intermittent, heavy at time of observation
+	65: Rain, not freezing, continuous, heavy at time of observation
+	66: Rain, freezing, slight
+	67: Rain, freezing, moderate or heavy
+	68: Rain or drizzle and snow, slight
+	69: Rain or drizzle and snow, moderate or heavy
+	70: Intermittent fall of snowflakes, slight at time of observation
+	71: Continuous fall of snowflakes, slight at time of observation
+	72: Intermittent fall of snowflakes, moderate at time of observation
+	73: Continuous fall of snowflakes, moderate at time of observation
+	74: Intermittent fall of snowflakes, heavy at time of observation
+	75: Continuous fall of snowflakes, heavy at time of observation
+	76: Diamond dust (with or without fog)
+	77: Snow grains (with or without fog)
+	78: Isolated star-like snow crystals (with or without fog)
+	79: Ice pellets
+	80: Rain shower(s), slight
+	81: Rain shower(s), moderate or heavy
+	82: Rain shower(s), violent
+	83: Shower(s) of rain and snow mixed, slight
+	84: Shower(s) of rain and snow mixed, moderate or heavy
+	85: Show shower(s), slight
+	86: Snow shower(s), moderate or heavy
+	87: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, slight
+	88: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, moderate or heavy
+	89: Shower(s) of hail (hail, small hail, snow pellets) , with or without rain or rain and snow mixed, not associated with thunder, slight
+	90: Shower(s) of hail (hail, small hail, snow pellets), with or without rain or rain and snow mixed, not associated with thunder, moderate or heavy
+	91: Slight rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	92: Moderate or heavy rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	93: Slight snow, or rain and snow mixed or hail (Hail, small hail, snow pellets), at time of observation, thunderstorm during the preceding hour but not at time of observation
+	94: Moderate or heavy snow, or rain and snow mixed or hail(Hail, small hail, snow pellets) at time of observation, thunderstorm during the preceding hour but not at time of observation
+	95: Thunderstorm, slight or moderate, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	96: Thunderstorm, slight or moderate, with hail (hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	97: Thunderstorm, heavy, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	98: Thunderstorm combined with duststorm or sandstorm at time of observation, thunderstorm at time of observation
+	99: Thunderstorm, heavy, with hail (Hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	
+
+Q: PRESENT-WEATHER-OBSERVATION manual #2 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-M: PRESENT-WEATHER-OBSERVATION manual header #3
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION manual #3 atmospheric condition code
+
+	The code that denotes a specific type of weather observed manually. 
+	Length:2
+	Table of Values:
+
+	00: Cloud development not observed or not observable
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged
+	03: Clouds generally forming or developing
+	04: Visibility reduced by smoke, e.g. veldt or forest fires, industrial smoke or volcanic ashes
+	05: Haze
+	06: Widespread dust in suspension in the air, not raised by wind at or near the station at the time of observation
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	08: Well developed dust whirl(s) or sand whirl(s) seen at or near the station during the preceding or at the time of observation, but no duststorm or sandstorm
+	09: Duststorm or sandstorm within sight at the time of observation, or at the station during the preceding hour
+	10: Mist
+	11: Patches of shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	12: More or less continuous shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	13: Lightning visible, no thunder heard
+	14: Precipitation within sight, not reaching the ground or the surface of the sea
+	15: Precipitation within sight, reaching the ground or the surface of the sea, but distant, i.e., estimated to be more than 5 km from the station
+	16: Precipitation within sight, reaching the ground or the surface of the sea, near to, but not at the station
+	17: Thunderstorm, but no precipitation at the time of observation
+	18: Squalls at or within sight of the station during the preceding hour or at the time of observation
+	19: Funnel cloud(s) (Tornado cloud or waterspout) at or within sight of the station during the preceding
+	20: Drizzle (not freezing) or snow grains not falling as shower(s)
+	21: Rain (not freezing) not falling as shower(s)
+	22: Snow not falling as shower(s)
+	23: Rain and snow or ice pellets not falling as shower(s)
+	24: Freezing drizzle or freezing rain not falling as shower(s)
+	25: Shower(s) of rain
+	26: Shower(s) of snow or of rain and snow
+	27: Shower(s) of hail (Hail, small hail, snow pellets), or rain and hail
+	28: Fog or ice fog
+	29: Thunderstorm (with or without precipitation)
+	30: Slight or moderate duststorm or sandstorm has decreased during the preceding hour
+	31: Slight or moderate duststorm or sandstorm no appreciable change during the preceding hour
+	32: Slight or moderate duststorm or sandstorm has begun or has increased during the preceding hour
+	33: Severe duststorm or sandstorm has decreased during the preceding hour
+	34: Severe duststorm or sandstorm no appreciable change during the preceding hour
+	35: Severe duststorm or sandstorm has begun or has increased during the preceding hour
+	36: Slight or moderate drifting snow generally low (below eye level)
+	37: Heavy drifting snow generally low (below eye level)
+	38: Slight or moderate blowing snow generally high (above eye level)
+	39: Heavy blowing snow generally high (above eye level)
+	40: Fog or ice fog at a distance at the time of observation, but not at the station during the preceding hour, the fog or ice fog extending to a level above that of the observer
+	41: Fog or ice fog in patches
+	42: Fog or ice fog, sky visible, has become thinner during the preceding hour
+	43: Fog or ice fog, sky invisible, has become thinner during the preceding hour
+	44: Fog or ice fog, sky visible, no appreciable change during the preceding hour
+	45: Fog or ice fog, sky invisible, no appreciable change during the preceding hour
+	46: Fog or ice fog, sky visible, has begun or has become thicker during the preceding hour
+	47: Fog or ice fog, sky invisible, has begun or has become thicker during the preceding hour
+	48: Fog, depositing rime, sky visible
+	49: Fog, depositing rime, sky invisible
+	50: Drizzle, not freezing, intermittent, slight at time of observation
+	51: Drizzle, not freezing, continuous, slight at time of observation
+	52: Drizzle, not freezing, intermittent, moderate at time of observation
+	53: Drizzle, not freezing, continuous, moderate at time of observation
+	54: Drizzle, not freezing, intermittent, heavy (dense) at time of observation
+	55: Drizzle, not freezing, continuous, heavy (dense) at time of observation
+	56: Drizzle, freezing, slight
+	57: Drizzle, freezing, moderate or heavy (dense)
+	58: Drizzle and rain, slight
+	59: Drizzle and rain, moderate or heavy
+	60: Rain, not freezing, intermittent, slight at time of observation
+	61: Rain, not freezing, continuous, slight at time of observation
+	62: Rain, not freezing, intermittent, moderate at time of observation
+	63: Rain, not freezing, continuous, moderate at time of observation
+	64: Rain, not freezing, intermittent, heavy at time of observation
+	65: Rain, not freezing, continuous, heavy at time of observation
+	66: Rain, freezing, slight
+	67: Rain, freezing, moderate or heavy
+	68: Rain or drizzle and snow, slight
+	69: Rain or drizzle and snow, moderate or heavy
+	70: Intermittent fall of snowflakes, slight at time of observation
+	71: Continuous fall of snowflakes, slight at time of observation
+	72: Intermittent fall of snowflakes, moderate at time of observation
+	73: Continuous fall of snowflakes, moderate at time of observation
+	74: Intermittent fall of snowflakes, heavy at time of observation
+	75: Continuous fall of snowflakes, heavy at time of observation
+	76: Diamond dust (with or without fog)
+	77: Snow grains (with or without fog)
+	78: Isolated star-like snow crystals (with or without fog)
+	79: Ice pellets
+	80: Rain shower(s), slight
+	81: Rain shower(s), moderate or heavy
+	82: Rain shower(s), violent
+	83: Shower(s) of rain and snow mixed, slight
+	84: Shower(s) of rain and snow mixed, moderate or heavy
+	85: Show shower(s), slight
+	86: Snow shower(s), moderate or heavy
+	87: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, slight
+	88: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, moderate or heavy
+	89: Shower(s) of hail (hail, small hail, snow pellets) , with or without rain or rain and snow mixed, not associated with thunder, slight
+	90: Shower(s) of hail (hail, small hail, snow pellets), with or without rain or rain and snow mixed, not associated with thunder, moderate or heavy
+	91: Slight rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	92: Moderate or heavy rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	93: Slight snow, or rain and snow mixed or hail (Hail, small hail, snow pellets), at time of observation, thunderstorm during the preceding hour but not at time of observation
+	94: Moderate or heavy snow, or rain and snow mixed or hail(Hail, small hail, snow pellets) at time of observation, thunderstorm during the preceding hour but not at time of observation
+	95: Thunderstorm, slight or moderate, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	96: Thunderstorm, slight or moderate, with hail (hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	97: Thunderstorm, heavy, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	98: Thunderstorm combined with duststorm or sandstorm at time of observation, thunderstorm at time of observation
+	99: Thunderstorm, heavy, with hail (Hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	
+
+Q: PRESENT-WEATHER-OBSERVATION manual #3 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-M: PRESENT-WEATHER-OBSERVATION manual header #4
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION manual #4 atmospheric condition code
+
+	The code that denotes a specific type of weather observed manually. 
+	Length:2
+	Table of Values:
+
+	00: Cloud development not observed or not observable
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged
+	03: Clouds generally forming or developing
+	04: Visibility reduced by smoke, e.g. veldt or forest fires, industrial smoke or volcanic ashes
+	05: Haze
+	06: Widespread dust in suspension in the air, not raised by wind at or near the station at the time of observation
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	08: Well developed dust whirl(s) or sand whirl(s) seen at or near the station during the preceding or at the time of observation, but no duststorm or sandstorm
+	09: Duststorm or sandstorm within sight at the time of observation, or at the station during the preceding hour
+	10: Mist
+	11: Patches of shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	12: More or less continuous shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	13: Lightning visible, no thunder heard
+	14: Precipitation within sight, not reaching the ground or the surface of the sea
+	15: Precipitation within sight, reaching the ground or the surface of the sea, but distant, i.e., estimated to be more than 5 km from the station
+	16: Precipitation within sight, reaching the ground or the surface of the sea, near to, but not at the station
+	17: Thunderstorm, but no precipitation at the time of observation
+	18: Squalls at or within sight of the station during the preceding hour or at the time of observation
+	19: Funnel cloud(s) (Tornado cloud or waterspout) at or within sight of the station during the preceding
+	20: Drizzle (not freezing) or snow grains not falling as shower(s)
+	21: Rain (not freezing) not falling as shower(s)
+	22: Snow not falling as shower(s)
+	23: Rain and snow or ice pellets not falling as shower(s)
+	24: Freezing drizzle or freezing rain not falling as shower(s)
+	25: Shower(s) of rain
+	26: Shower(s) of snow or of rain and snow
+	27: Shower(s) of hail (Hail, small hail, snow pellets), or rain and hail
+	28: Fog or ice fog
+	29: Thunderstorm (with or without precipitation)
+	30: Slight or moderate duststorm or sandstorm has decreased during the preceding hour
+	31: Slight or moderate duststorm or sandstorm no appreciable change during the preceding hour
+	32: Slight or moderate duststorm or sandstorm has begun or has increased during the preceding hour
+	33: Severe duststorm or sandstorm has decreased during the preceding hour
+	34: Severe duststorm or sandstorm no appreciable change during the preceding hour
+	35: Severe duststorm or sandstorm has begun or has increased during the preceding hour
+	36: Slight or moderate drifting snow generally low (below eye level)
+	37: Heavy drifting snow generally low (below eye level)
+	38: Slight or moderate blowing snow generally high (above eye level)
+	39: Heavy blowing snow generally high (above eye level)
+	40: Fog or ice fog at a distance at the time of observation, but not at the station during the preceding hour, the fog or ice fog extending to a level above that of the observer
+	41: Fog or ice fog in patches
+	42: Fog or ice fog, sky visible, has become thinner during the preceding hour
+	43: Fog or ice fog, sky invisible, has become thinner during the preceding hour
+	44: Fog or ice fog, sky visible, no appreciable change during the preceding hour
+	45: Fog or ice fog, sky invisible, no appreciable change during the preceding hour
+	46: Fog or ice fog, sky visible, has begun or has become thicker during the preceding hour
+	47: Fog or ice fog, sky invisible, has begun or has become thicker during the preceding hour
+	48: Fog, depositing rime, sky visible
+	49: Fog, depositing rime, sky invisible
+	50: Drizzle, not freezing, intermittent, slight at time of observation
+	51: Drizzle, not freezing, continuous, slight at time of observation
+	52: Drizzle, not freezing, intermittent, moderate at time of observation
+	53: Drizzle, not freezing, continuous, moderate at time of observation
+	54: Drizzle, not freezing, intermittent, heavy (dense) at time of observation
+	55: Drizzle, not freezing, continuous, heavy (dense) at time of observation
+	56: Drizzle, freezing, slight
+	57: Drizzle, freezing, moderate or heavy (dense)
+	58: Drizzle and rain, slight
+	59: Drizzle and rain, moderate or heavy
+	60: Rain, not freezing, intermittent, slight at time of observation
+	61: Rain, not freezing, continuous, slight at time of observation
+	62: Rain, not freezing, intermittent, moderate at time of observation
+	63: Rain, not freezing, continuous, moderate at time of observation
+	64: Rain, not freezing, intermittent, heavy at time of observation
+	65: Rain, not freezing, continuous, heavy at time of observation
+	66: Rain, freezing, slight
+	67: Rain, freezing, moderate or heavy
+	68: Rain or drizzle and snow, slight
+	69: Rain or drizzle and snow, moderate or heavy
+	70: Intermittent fall of snowflakes, slight at time of observation
+	71: Continuous fall of snowflakes, slight at time of observation
+	72: Intermittent fall of snowflakes, moderate at time of observation
+	73: Continuous fall of snowflakes, moderate at time of observation
+	74: Intermittent fall of snowflakes, heavy at time of observation
+	75: Continuous fall of snowflakes, heavy at time of observation
+	76: Diamond dust (with or without fog)
+	77: Snow grains (with or without fog)
+	78: Isolated star-like snow crystals (with or without fog)
+	79: Ice pellets
+	80: Rain shower(s), slight
+	81: Rain shower(s), moderate or heavy
+	82: Rain shower(s), violent
+	83: Shower(s) of rain and snow mixed, slight
+	84: Shower(s) of rain and snow mixed, moderate or heavy
+	85: Show shower(s), slight
+	86: Snow shower(s), moderate or heavy
+	87: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, slight
+	88: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, moderate or heavy
+	89: Shower(s) of hail (hail, small hail, snow pellets) , with or without rain or rain and snow mixed, not associated with thunder, slight
+	90: Shower(s) of hail (hail, small hail, snow pellets), with or without rain or rain and snow mixed, not associated with thunder, moderate or heavy
+	91: Slight rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	92: Moderate or heavy rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	93: Slight snow, or rain and snow mixed or hail (Hail, small hail, snow pellets), at time of observation, thunderstorm during the preceding hour but not at time of observation
+	94: Moderate or heavy snow, or rain and snow mixed or hail(Hail, small hail, snow pellets) at time of observation, thunderstorm during the preceding hour but not at time of observation
+	95: Thunderstorm, slight or moderate, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	96: Thunderstorm, slight or moderate, with hail (hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	97: Thunderstorm, heavy, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	98: Thunderstorm combined with duststorm or sandstorm at time of observation, thunderstorm at time of observation
+	99: Thunderstorm, heavy, with hail (Hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	
+
+Q: PRESENT-WEATHER-OBSERVATION manual #4 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-M: PRESENT-WEATHER-OBSERVATION manual header #5
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION manual #5 atmospheric condition code
+
+	The code that denotes a specific type of weather observed manually. 
+	Length:2
+	Table of Values:
+
+	00: Cloud development not observed or not observable
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged
+	03: Clouds generally forming or developing
+	04: Visibility reduced by smoke, e.g. veldt or forest fires, industrial smoke or volcanic ashes
+	05: Haze
+	06: Widespread dust in suspension in the air, not raised by wind at or near the station at the time of observation
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	08: Well developed dust whirl(s) or sand whirl(s) seen at or near the station during the preceding or at the time of observation, but no duststorm or sandstorm
+	09: Duststorm or sandstorm within sight at the time of observation, or at the station during the preceding hour
+	10: Mist
+	11: Patches of shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	12: More or less continuous shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	13: Lightning visible, no thunder heard
+	14: Precipitation within sight, not reaching the ground or the surface of the sea
+	15: Precipitation within sight, reaching the ground or the surface of the sea, but distant, i.e., estimated to be more than 5 km from the station
+	16: Precipitation within sight, reaching the ground or the surface of the sea, near to, but not at the station
+	17: Thunderstorm, but no precipitation at the time of observation
+	18: Squalls at or within sight of the station during the preceding hour or at the time of observation
+	19: Funnel cloud(s) (Tornado cloud or waterspout) at or within sight of the station during the preceding
+	20: Drizzle (not freezing) or snow grains not falling as shower(s)
+	21: Rain (not freezing) not falling as shower(s)
+	22: Snow not falling as shower(s)
+	23: Rain and snow or ice pellets not falling as shower(s)
+	24: Freezing drizzle or freezing rain not falling as shower(s)
+	25: Shower(s) of rain
+	26: Shower(s) of snow or of rain and snow
+	27: Shower(s) of hail (Hail, small hail, snow pellets), or rain and hail
+	28: Fog or ice fog
+	29: Thunderstorm (with or without precipitation)
+	30: Slight or moderate duststorm or sandstorm has decreased during the preceding hour
+	31: Slight or moderate duststorm or sandstorm no appreciable change during the preceding hour
+	32: Slight or moderate duststorm or sandstorm has begun or has increased during the preceding hour
+	33: Severe duststorm or sandstorm has decreased during the preceding hour
+	34: Severe duststorm or sandstorm no appreciable change during the preceding hour
+	35: Severe duststorm or sandstorm has begun or has increased during the preceding hour
+	36: Slight or moderate drifting snow generally low (below eye level)
+	37: Heavy drifting snow generally low (below eye level)
+	38: Slight or moderate blowing snow generally high (above eye level)
+	39: Heavy blowing snow generally high (above eye level)
+	40: Fog or ice fog at a distance at the time of observation, but not at the station during the preceding hour, the fog or ice fog extending to a level above that of the observer
+	41: Fog or ice fog in patches
+	42: Fog or ice fog, sky visible, has become thinner during the preceding hour
+	43: Fog or ice fog, sky invisible, has become thinner during the preceding hour
+	44: Fog or ice fog, sky visible, no appreciable change during the preceding hour
+	45: Fog or ice fog, sky invisible, no appreciable change during the preceding hour
+	46: Fog or ice fog, sky visible, has begun or has become thicker during the preceding hour
+	47: Fog or ice fog, sky invisible, has begun or has become thicker during the preceding hour
+	48: Fog, depositing rime, sky visible
+	49: Fog, depositing rime, sky invisible
+	50: Drizzle, not freezing, intermittent, slight at time of observation
+	51: Drizzle, not freezing, continuous, slight at time of observation
+	52: Drizzle, not freezing, intermittent, moderate at time of observation
+	53: Drizzle, not freezing, continuous, moderate at time of observation
+	54: Drizzle, not freezing, intermittent, heavy (dense) at time of observation
+	55: Drizzle, not freezing, continuous, heavy (dense) at time of observation
+	56: Drizzle, freezing, slight
+	57: Drizzle, freezing, moderate or heavy (dense)
+	58: Drizzle and rain, slight
+	59: Drizzle and rain, moderate or heavy
+	60: Rain, not freezing, intermittent, slight at time of observation
+	61: Rain, not freezing, continuous, slight at time of observation
+	62: Rain, not freezing, intermittent, moderate at time of observation
+	63: Rain, not freezing, continuous, moderate at time of observation
+	64: Rain, not freezing, intermittent, heavy at time of observation
+	65: Rain, not freezing, continuous, heavy at time of observation
+	66: Rain, freezing, slight
+	67: Rain, freezing, moderate or heavy
+	68: Rain or drizzle and snow, slight
+	69: Rain or drizzle and snow, moderate or heavy
+	70: Intermittent fall of snowflakes, slight at time of observation
+	71: Continuous fall of snowflakes, slight at time of observation
+	72: Intermittent fall of snowflakes, moderate at time of observation
+	73: Continuous fall of snowflakes, moderate at time of observation
+	74: Intermittent fall of snowflakes, heavy at time of observation
+	75: Continuous fall of snowflakes, heavy at time of observation
+	76: Diamond dust (with or without fog)
+	77: Snow grains (with or without fog)
+	78: Isolated star-like snow crystals (with or without fog)
+	79: Ice pellets
+	80: Rain shower(s), slight
+	81: Rain shower(s), moderate or heavy
+	82: Rain shower(s), violent
+	83: Shower(s) of rain and snow mixed, slight
+	84: Shower(s) of rain and snow mixed, moderate or heavy
+	85: Show shower(s), slight
+	86: Snow shower(s), moderate or heavy
+	87: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, slight
+	88: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, moderate or heavy
+	89: Shower(s) of hail (hail, small hail, snow pellets) , with or without rain or rain and snow mixed, not associated with thunder, slight
+	90: Shower(s) of hail (hail, small hail, snow pellets), with or without rain or rain and snow mixed, not associated with thunder, moderate or heavy
+	91: Slight rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	92: Moderate or heavy rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	93: Slight snow, or rain and snow mixed or hail (Hail, small hail, snow pellets), at time of observation, thunderstorm during the preceding hour but not at time of observation
+	94: Moderate or heavy snow, or rain and snow mixed or hail(Hail, small hail, snow pellets) at time of observation, thunderstorm during the preceding hour but not at time of observation
+	95: Thunderstorm, slight or moderate, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	96: Thunderstorm, slight or moderate, with hail (hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	97: Thunderstorm, heavy, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	98: Thunderstorm combined with duststorm or sandstorm at time of observation, thunderstorm at time of observation
+	99: Thunderstorm, heavy, with hail (Hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	
+
+Q: PRESENT-WEATHER-OBSERVATION manual #5 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-M: PRESENT-WEATHER-OBSERVATION manual header #6
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION manual #6 atmospheric condition code
+
+	The code that denotes a specific type of weather observed manually. 
+	Length:2
+	Table of Values:
+
+	00: Cloud development not observed or not observable
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged
+	03: Clouds generally forming or developing
+	04: Visibility reduced by smoke, e.g. veldt or forest fires, industrial smoke or volcanic ashes
+	05: Haze
+	06: Widespread dust in suspension in the air, not raised by wind at or near the station at the time of observation
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	08: Well developed dust whirl(s) or sand whirl(s) seen at or near the station during the preceding or at the time of observation, but no duststorm or sandstorm
+	09: Duststorm or sandstorm within sight at the time of observation, or at the station during the preceding hour
+	10: Mist
+	11: Patches of shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	12: More or less continuous shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	13: Lightning visible, no thunder heard
+	14: Precipitation within sight, not reaching the ground or the surface of the sea
+	15: Precipitation within sight, reaching the ground or the surface of the sea, but distant, i.e., estimated to be more than 5 km from the station
+	16: Precipitation within sight, reaching the ground or the surface of the sea, near to, but not at the station
+	17: Thunderstorm, but no precipitation at the time of observation
+	18: Squalls at or within sight of the station during the preceding hour or at the time of observation
+	19: Funnel cloud(s) (Tornado cloud or waterspout) at or within sight of the station during the preceding
+	20: Drizzle (not freezing) or snow grains not falling as shower(s)
+	21: Rain (not freezing) not falling as shower(s)
+	22: Snow not falling as shower(s)
+	23: Rain and snow or ice pellets not falling as shower(s)
+	24: Freezing drizzle or freezing rain not falling as shower(s)
+	25: Shower(s) of rain
+	26: Shower(s) of snow or of rain and snow
+	27: Shower(s) of hail (Hail, small hail, snow pellets), or rain and hail
+	28: Fog or ice fog
+	29: Thunderstorm (with or without precipitation)
+	30: Slight or moderate duststorm or sandstorm has decreased during the preceding hour
+	31: Slight or moderate duststorm or sandstorm no appreciable change during the preceding hour
+	32: Slight or moderate duststorm or sandstorm has begun or has increased during the preceding hour
+	33: Severe duststorm or sandstorm has decreased during the preceding hour
+	34: Severe duststorm or sandstorm no appreciable change during the preceding hour
+	35: Severe duststorm or sandstorm has begun or has increased during the preceding hour
+	36: Slight or moderate drifting snow generally low (below eye level)
+	37: Heavy drifting snow generally low (below eye level)
+	38: Slight or moderate blowing snow generally high (above eye level)
+	39: Heavy blowing snow generally high (above eye level)
+	40: Fog or ice fog at a distance at the time of observation, but not at the station during the preceding hour, the fog or ice fog extending to a level above that of the observer
+	41: Fog or ice fog in patches
+	42: Fog or ice fog, sky visible, has become thinner during the preceding hour
+	43: Fog or ice fog, sky invisible, has become thinner during the preceding hour
+	44: Fog or ice fog, sky visible, no appreciable change during the preceding hour
+	45: Fog or ice fog, sky invisible, no appreciable change during the preceding hour
+	46: Fog or ice fog, sky visible, has begun or has become thicker during the preceding hour
+	47: Fog or ice fog, sky invisible, has begun or has become thicker during the preceding hour
+	48: Fog, depositing rime, sky visible
+	49: Fog, depositing rime, sky invisible
+	50: Drizzle, not freezing, intermittent, slight at time of observation
+	51: Drizzle, not freezing, continuous, slight at time of observation
+	52: Drizzle, not freezing, intermittent, moderate at time of observation
+	53: Drizzle, not freezing, continuous, moderate at time of observation
+	54: Drizzle, not freezing, intermittent, heavy (dense) at time of observation
+	55: Drizzle, not freezing, continuous, heavy (dense) at time of observation
+	56: Drizzle, freezing, slight
+	57: Drizzle, freezing, moderate or heavy (dense)
+	58: Drizzle and rain, slight
+	59: Drizzle and rain, moderate or heavy
+	60: Rain, not freezing, intermittent, slight at time of observation
+	61: Rain, not freezing, continuous, slight at time of observation
+	62: Rain, not freezing, intermittent, moderate at time of observation
+	63: Rain, not freezing, continuous, moderate at time of observation
+	64: Rain, not freezing, intermittent, heavy at time of observation
+	65: Rain, not freezing, continuous, heavy at time of observation
+	66: Rain, freezing, slight
+	67: Rain, freezing, moderate or heavy
+	68: Rain or drizzle and snow, slight
+	69: Rain or drizzle and snow, moderate or heavy
+	70: Intermittent fall of snowflakes, slight at time of observation
+	71: Continuous fall of snowflakes, slight at time of observation
+	72: Intermittent fall of snowflakes, moderate at time of observation
+	73: Continuous fall of snowflakes, moderate at time of observation
+	74: Intermittent fall of snowflakes, heavy at time of observation
+	75: Continuous fall of snowflakes, heavy at time of observation
+	76: Diamond dust (with or without fog)
+	77: Snow grains (with or without fog)
+	78: Isolated star-like snow crystals (with or without fog)
+	79: Ice pellets
+	80: Rain shower(s), slight
+	81: Rain shower(s), moderate or heavy
+	82: Rain shower(s), violent
+	83: Shower(s) of rain and snow mixed, slight
+	84: Shower(s) of rain and snow mixed, moderate or heavy
+	85: Show shower(s), slight
+	86: Snow shower(s), moderate or heavy
+	87: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, slight
+	88: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, moderate or heavy
+	89: Shower(s) of hail (hail, small hail, snow pellets) , with or without rain or rain and snow mixed, not associated with thunder, slight
+	90: Shower(s) of hail (hail, small hail, snow pellets), with or without rain or rain and snow mixed, not associated with thunder, moderate or heavy
+	91: Slight rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	92: Moderate or heavy rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	93: Slight snow, or rain and snow mixed or hail (Hail, small hail, snow pellets), at time of observation, thunderstorm during the preceding hour but not at time of observation
+	94: Moderate or heavy snow, or rain and snow mixed or hail(Hail, small hail, snow pellets) at time of observation, thunderstorm during the preceding hour but not at time of observation
+	95: Thunderstorm, slight or moderate, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	96: Thunderstorm, slight or moderate, with hail (hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	97: Thunderstorm, heavy, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	98: Thunderstorm combined with duststorm or sandstorm at time of observation, thunderstorm at time of observation
+	99: Thunderstorm, heavy, with hail (Hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	
+
+Q: PRESENT-WEATHER-OBSERVATION manual #6 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-M: PRESENT-WEATHER-OBSERVATION manual header #7
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION manual #7 atmospheric condition code
+
+	The code that denotes a specific type of weather observed manually. 
+	Length:2
+	Table of Values:
+
+	00: Cloud development not observed or not observable
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged
+	03: Clouds generally forming or developing
+	04: Visibility reduced by smoke, e.g. veldt or forest fires, industrial smoke or volcanic ashes
+	05: Haze
+	06: Widespread dust in suspension in the air, not raised by wind at or near the station at the time of observation
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	08: Well developed dust whirl(s) or sand whirl(s) seen at or near the station during the preceding or at the time of observation, but no duststorm or sandstorm
+	09: Duststorm or sandstorm within sight at the time of observation, or at the station during the preceding hour
+	10: Mist
+	11: Patches of shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	12: More or less continuous shallow fog or ice fog at the station, whether on land or sea, not deeper than about 2 meters on land or 10 meters at sea
+	13: Lightning visible, no thunder heard
+	14: Precipitation within sight, not reaching the ground or the surface of the sea
+	15: Precipitation within sight, reaching the ground or the surface of the sea, but distant, i.e., estimated to be more than 5 km from the station
+	16: Precipitation within sight, reaching the ground or the surface of the sea, near to, but not at the station
+	17: Thunderstorm, but no precipitation at the time of observation
+	18: Squalls at or within sight of the station during the preceding hour or at the time of observation
+	19: Funnel cloud(s) (Tornado cloud or waterspout) at or within sight of the station during the preceding
+	20: Drizzle (not freezing) or snow grains not falling as shower(s)
+	21: Rain (not freezing) not falling as shower(s)
+	22: Snow not falling as shower(s)
+	23: Rain and snow or ice pellets not falling as shower(s)
+	24: Freezing drizzle or freezing rain not falling as shower(s)
+	25: Shower(s) of rain
+	26: Shower(s) of snow or of rain and snow
+	27: Shower(s) of hail (Hail, small hail, snow pellets), or rain and hail
+	28: Fog or ice fog
+	29: Thunderstorm (with or without precipitation)
+	30: Slight or moderate duststorm or sandstorm has decreased during the preceding hour
+	31: Slight or moderate duststorm or sandstorm no appreciable change during the preceding hour
+	32: Slight or moderate duststorm or sandstorm has begun or has increased during the preceding hour
+	33: Severe duststorm or sandstorm has decreased during the preceding hour
+	34: Severe duststorm or sandstorm no appreciable change during the preceding hour
+	35: Severe duststorm or sandstorm has begun or has increased during the preceding hour
+	36: Slight or moderate drifting snow generally low (below eye level)
+	37: Heavy drifting snow generally low (below eye level)
+	38: Slight or moderate blowing snow generally high (above eye level)
+	39: Heavy blowing snow generally high (above eye level)
+	40: Fog or ice fog at a distance at the time of observation, but not at the station during the preceding hour, the fog or ice fog extending to a level above that of the observer
+	41: Fog or ice fog in patches
+	42: Fog or ice fog, sky visible, has become thinner during the preceding hour
+	43: Fog or ice fog, sky invisible, has become thinner during the preceding hour
+	44: Fog or ice fog, sky visible, no appreciable change during the preceding hour
+	45: Fog or ice fog, sky invisible, no appreciable change during the preceding hour
+	46: Fog or ice fog, sky visible, has begun or has become thicker during the preceding hour
+	47: Fog or ice fog, sky invisible, has begun or has become thicker during the preceding hour
+	48: Fog, depositing rime, sky visible
+	49: Fog, depositing rime, sky invisible
+	50: Drizzle, not freezing, intermittent, slight at time of observation
+	51: Drizzle, not freezing, continuous, slight at time of observation
+	52: Drizzle, not freezing, intermittent, moderate at time of observation
+	53: Drizzle, not freezing, continuous, moderate at time of observation
+	54: Drizzle, not freezing, intermittent, heavy (dense) at time of observation
+	55: Drizzle, not freezing, continuous, heavy (dense) at time of observation
+	56: Drizzle, freezing, slight
+	57: Drizzle, freezing, moderate or heavy (dense)
+	58: Drizzle and rain, slight
+	59: Drizzle and rain, moderate or heavy
+	60: Rain, not freezing, intermittent, slight at time of observation
+	61: Rain, not freezing, continuous, slight at time of observation
+	62: Rain, not freezing, intermittent, moderate at time of observation
+	63: Rain, not freezing, continuous, moderate at time of observation
+	64: Rain, not freezing, intermittent, heavy at time of observation
+	65: Rain, not freezing, continuous, heavy at time of observation
+	66: Rain, freezing, slight
+	67: Rain, freezing, moderate or heavy
+	68: Rain or drizzle and snow, slight
+	69: Rain or drizzle and snow, moderate or heavy
+	70: Intermittent fall of snowflakes, slight at time of observation
+	71: Continuous fall of snowflakes, slight at time of observation
+	72: Intermittent fall of snowflakes, moderate at time of observation
+	73: Continuous fall of snowflakes, moderate at time of observation
+	74: Intermittent fall of snowflakes, heavy at time of observation
+	75: Continuous fall of snowflakes, heavy at time of observation
+	76: Diamond dust (with or without fog)
+	77: Snow grains (with or without fog)
+	78: Isolated star-like snow crystals (with or without fog)
+	79: Ice pellets
+	80: Rain shower(s), slight
+	81: Rain shower(s), moderate or heavy
+	82: Rain shower(s), violent
+	83: Shower(s) of rain and snow mixed, slight
+	84: Shower(s) of rain and snow mixed, moderate or heavy
+	85: Show shower(s), slight
+	86: Snow shower(s), moderate or heavy
+	87: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, slight
+	88: Shower(s) of snow pellets or small hail, with or without rain or rain and snow mixed, moderate or heavy
+	89: Shower(s) of hail (hail, small hail, snow pellets) , with or without rain or rain and snow mixed, not associated with thunder, slight
+	90: Shower(s) of hail (hail, small hail, snow pellets), with or without rain or rain and snow mixed, not associated with thunder, moderate or heavy
+	91: Slight rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	92: Moderate or heavy rain at time of observation, thunderstorm during the preceding hour but not at time of observation
+	93: Slight snow, or rain and snow mixed or hail (Hail, small hail, snow pellets), at time of observation, thunderstorm during the preceding hour but not at time of observation
+	94: Moderate or heavy snow, or rain and snow mixed or hail(Hail, small hail, snow pellets) at time of observation, thunderstorm during the preceding hour but not at time of observation
+	95: Thunderstorm, slight or moderate, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	96: Thunderstorm, slight or moderate, with hail (hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	97: Thunderstorm, heavy, without hail (Hail, small hail, snow pellets), but with rain and/or snow at time of observation, thunderstorm at time of observation
+	98: Thunderstorm combined with duststorm or sandstorm at time of observation, thunderstorm at time of observation
+	99: Thunderstorm, heavy, with hail (Hail, small hail, snow pellets) at time of observation, thunderstorm at time of observation
+	
+
+Q: PRESENT-WEATHER-OBSERVATION manual #7 Quality manual atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from a manual station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check, data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+RHX: RELATIVE-HUMIDITY-CALCULATION header
+	Length:3
+
+RHX: RELATIVE-HUMIDITY-CALCULATION computed relative humidity
+
+	new field description 
+	Length:3
+	Scale:1
+	Unit:Percent
+	Default Value:999
+
+REMARKS: Remarks header
+
+REMARKS: Remarks
+	Length:-250
+
+QCP: Identification METEOROLOGICAL-POINT-OBSERVATION quality control process name
+
+	The name of the quality control process applied to a weather observation. 
+	
+	Length:4
+
+WX-A: PRESENT-WEATHER-OBSERVATION automated header #2
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION automated #2 atmospheric condition code
+
+	The code that denotes a specific type of weather reported by an automated 
+	device. 
+	Length:2
+	Table of Values:
+
+	00: No significant weather observed
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged during the past hour
+	03: Clouds generally forming or developing during the past hour
+	04: Haze, smoke, or dust in suspension in the air, visibility equal to or greater than 1km
+	05: Smoke
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	10: Mist
+	11: Diamond dust
+	12: Distant lightning
+	18: Squalls
+	20: Fog
+	21: Precipitation
+	22: Drizzle (not freezing) or snow grains
+	23: Rain (not freezing)
+	24: Snow
+	25: Freezing drizzle or freezing rain
+	26: Thunderstorm (with or without precipitation)
+	27: Blowing or drifting snow or sand
+	28: Blowing or drifting snow or sand, visibility equal to or greater than 1 km
+	29: Blowing or drifting snow or sand, visibility less than 1 km
+	30: Fog
+	31: Fog or ice fog in patches
+	32: Fog or ice fog, has become thinner during the past hour
+	33: Fog or ice fog, no appreciable change during the past hour
+	34: Fog or ice fog, has begun or become thicker during the past hour
+	35: Fog, depositing rime
+	40: Precipitation
+	41: Precipitation, slight or moderate
+	42: Precipitation, heavy
+	43: Liquid precipitation, slight or moderate
+	44: Liquid precipitation, heavy
+	45: Solid precipitation, slight or moderate
+	46: Solid precipitation, heavy
+	47: Freezing precipitation, slight or moderate
+	48: Freezing precipitation, heavy
+	50: Drizzle
+	51: Drizzle, not freezing, slight
+	52: Drizzle, not freezing, moderate
+	53: Drizzle, not freezing, heavy
+	54: Drizzle, freezing, slight
+	55: Drizzle, freezing, moderate
+	56: Drizzle, freezing, heavy
+	57: Drizzle and rain, slight
+	58: Drizzle and rain, moderate or heavy
+	60: Rain
+	61: Rain, not freezing, slight
+	62: Rain, not freezing, moderate
+	63: Rain, not freezing, heavy
+	64: Rain, freezing, slight
+	65: Rain, freezing, moderate
+	66: Rain, freezing, heavy
+	67: Rain or drizzle and snow, slight
+	68: Rain or drizzle and snow, moderate or heavy
+	70: Snow
+	71: Snow, slight
+	72: Snow, moderate
+	73: Snow, heavy
+	74: Ice pellets, slight
+	75: Ice pellets, moderate
+	76: Ice pellets, heavy
+	77: Snow Grains
+	78: Ice Crystals
+	80: Showers or intermittent precipitation
+	81: Rain showers or intermittent rain, slight
+	82: Rain showers or intermittent rain, moderate
+	83: Rain showers or intermittent rain, heavy
+	84: Rain showers or intermittent rain, violent
+	85: Snow showers or intermittent rain, slight
+	86: Snow showers or intermittent rain, moderate
+	87: Snow showers or intermittent rain, heavy
+	89: Hail
+	90: Thunderstorm
+	91: Thunderstorm, slight or moderate, with no precipitation
+	92: Thunderstorm, slight or moderate, with rain showers and/or snow showers
+	93: Thunderstorm, slight or moderate, with hail
+	94: Thunderstorm, heavy, with no precipitation
+	95: Thunderstorm, heavy, with rain showers and/or snow
+	96: Thunderstorm, heavy, with hail
+	99: Tornado
+	
+
+Q: PRESENT-WEATHER-OBSERVATION automated #2 quality automated atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from an automated station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-A: PRESENT-WEATHER-OBSERVATION automated header #3
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION automated #3 atmospheric condition code
+
+	The code that denotes a specific type of weather reported by an automated 
+	device. 
+	Length:2
+	Table of Values:
+
+	00: No significant weather observed
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged during the past hour
+	03: Clouds generally forming or developing during the past hour
+	04: Haze, smoke, or dust in suspension in the air, visibility equal to or greater than 1km
+	05: Smoke
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	10: Mist
+	11: Diamond dust
+	12: Distant lightning
+	18: Squalls
+	20: Fog
+	21: Precipitation
+	22: Drizzle (not freezing) or snow grains
+	23: Rain (not freezing)
+	24: Snow
+	25: Freezing drizzle or freezing rain
+	26: Thunderstorm (with or without precipitation)
+	27: Blowing or drifting snow or sand
+	28: Blowing or drifting snow or sand, visibility equal to or greater than 1 km
+	29: Blowing or drifting snow or sand, visibility less than 1 km
+	30: Fog
+	31: Fog or ice fog in patches
+	32: Fog or ice fog, has become thinner during the past hour
+	33: Fog or ice fog, no appreciable change during the past hour
+	34: Fog or ice fog, has begun or become thicker during the past hour
+	35: Fog, depositing rime
+	40: Precipitation
+	41: Precipitation, slight or moderate
+	42: Precipitation, heavy
+	43: Liquid precipitation, slight or moderate
+	44: Liquid precipitation, heavy
+	45: Solid precipitation, slight or moderate
+	46: Solid precipitation, heavy
+	47: Freezing precipitation, slight or moderate
+	48: Freezing precipitation, heavy
+	50: Drizzle
+	51: Drizzle, not freezing, slight
+	52: Drizzle, not freezing, moderate
+	53: Drizzle, not freezing, heavy
+	54: Drizzle, freezing, slight
+	55: Drizzle, freezing, moderate
+	56: Drizzle, freezing, heavy
+	57: Drizzle and rain, slight
+	58: Drizzle and rain, moderate or heavy
+	60: Rain
+	61: Rain, not freezing, slight
+	62: Rain, not freezing, moderate
+	63: Rain, not freezing, heavy
+	64: Rain, freezing, slight
+	65: Rain, freezing, moderate
+	66: Rain, freezing, heavy
+	67: Rain or drizzle and snow, slight
+	68: Rain or drizzle and snow, moderate or heavy
+	70: Snow
+	71: Snow, slight
+	72: Snow, moderate
+	73: Snow, heavy
+	74: Ice pellets, slight
+	75: Ice pellets, moderate
+	76: Ice pellets, heavy
+	77: Snow Grains
+	78: Ice Crystals
+	80: Showers or intermittent precipitation
+	81: Rain showers or intermittent rain, slight
+	82: Rain showers or intermittent rain, moderate
+	83: Rain showers or intermittent rain, heavy
+	84: Rain showers or intermittent rain, violent
+	85: Snow showers or intermittent rain, slight
+	86: Snow showers or intermittent rain, moderate
+	87: Snow showers or intermittent rain, heavy
+	89: Hail
+	90: Thunderstorm
+	91: Thunderstorm, slight or moderate, with no precipitation
+	92: Thunderstorm, slight or moderate, with rain showers and/or snow showers
+	93: Thunderstorm, slight or moderate, with hail
+	94: Thunderstorm, heavy, with no precipitation
+	95: Thunderstorm, heavy, with rain showers and/or snow
+	96: Thunderstorm, heavy, with hail
+	99: Tornado
+	
+
+Q: PRESENT-WEATHER-OBSERVATION automated #3 quality automated atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from an automated station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
+WX-A: PRESENT-WEATHER-OBSERVATION automated header #4
+	Length:3
+
+WX: PRESENT-WEATHER-OBSERVATION automated #4 atmospheric condition code
+
+	The code that denotes a specific type of weather reported by an automated 
+	device. 
+	Length:2
+	Table of Values:
+
+	00: No significant weather observed
+	01: Clouds generally dissolving or becoming less developed
+	02: State of sky on the whole unchanged during the past hour
+	03: Clouds generally forming or developing during the past hour
+	04: Haze, smoke, or dust in suspension in the air, visibility equal to or greater than 1km
+	05: Smoke
+	07: Dust or sand raised by wind at or near the station at the time of observation, but no well-developed dust whirl(s) or sand whirl(s), and no duststorm or sandstorm seen or, in the case of ships, blowing spray at the station
+	10: Mist
+	11: Diamond dust
+	12: Distant lightning
+	18: Squalls
+	20: Fog
+	21: Precipitation
+	22: Drizzle (not freezing) or snow grains
+	23: Rain (not freezing)
+	24: Snow
+	25: Freezing drizzle or freezing rain
+	26: Thunderstorm (with or without precipitation)
+	27: Blowing or drifting snow or sand
+	28: Blowing or drifting snow or sand, visibility equal to or greater than 1 km
+	29: Blowing or drifting snow or sand, visibility less than 1 km
+	30: Fog
+	31: Fog or ice fog in patches
+	32: Fog or ice fog, has become thinner during the past hour
+	33: Fog or ice fog, no appreciable change during the past hour
+	34: Fog or ice fog, has begun or become thicker during the past hour
+	35: Fog, depositing rime
+	40: Precipitation
+	41: Precipitation, slight or moderate
+	42: Precipitation, heavy
+	43: Liquid precipitation, slight or moderate
+	44: Liquid precipitation, heavy
+	45: Solid precipitation, slight or moderate
+	46: Solid precipitation, heavy
+	47: Freezing precipitation, slight or moderate
+	48: Freezing precipitation, heavy
+	50: Drizzle
+	51: Drizzle, not freezing, slight
+	52: Drizzle, not freezing, moderate
+	53: Drizzle, not freezing, heavy
+	54: Drizzle, freezing, slight
+	55: Drizzle, freezing, moderate
+	56: Drizzle, freezing, heavy
+	57: Drizzle and rain, slight
+	58: Drizzle and rain, moderate or heavy
+	60: Rain
+	61: Rain, not freezing, slight
+	62: Rain, not freezing, moderate
+	63: Rain, not freezing, heavy
+	64: Rain, freezing, slight
+	65: Rain, freezing, moderate
+	66: Rain, freezing, heavy
+	67: Rain or drizzle and snow, slight
+	68: Rain or drizzle and snow, moderate or heavy
+	70: Snow
+	71: Snow, slight
+	72: Snow, moderate
+	73: Snow, heavy
+	74: Ice pellets, slight
+	75: Ice pellets, moderate
+	76: Ice pellets, heavy
+	77: Snow Grains
+	78: Ice Crystals
+	80: Showers or intermittent precipitation
+	81: Rain showers or intermittent rain, slight
+	82: Rain showers or intermittent rain, moderate
+	83: Rain showers or intermittent rain, heavy
+	84: Rain showers or intermittent rain, violent
+	85: Snow showers or intermittent rain, slight
+	86: Snow showers or intermittent rain, moderate
+	87: Snow showers or intermittent rain, heavy
+	89: Hail
+	90: Thunderstorm
+	91: Thunderstorm, slight or moderate, with no precipitation
+	92: Thunderstorm, slight or moderate, with rain showers and/or snow showers
+	93: Thunderstorm, slight or moderate, with hail
+	94: Thunderstorm, heavy, with no precipitation
+	95: Thunderstorm, heavy, with rain showers and/or snow
+	96: Thunderstorm, heavy, with hail
+	99: Tornado
+	
+
+Q: PRESENT-WEATHER-OBSERVATION automated #4 quality automated atmospheric condition code
+
+	The code that denotes a quality status of a reported present weather observation 
+	from an automated station. 
+	Length:1
+	Default Value:9
+	Table of Values:
+
+	0: Passed gross limits check
+	1: Passed all quality control checks
+	2: Suspect
+	3: Erroneous
+	4: Passed gross limits check , data originate from an NCDC data source
+	5: Passed all quality control checks, data originate from an NCDC data source
+	6: Suspect, data originate from an NCDC data source
+	7: Erroneous, data originate from an NCDC data source
+	9: Passed gross limits check if element is present
+	M: Manual change made to value based on information provided by NWS or FAA
+	
+
