@@ -62,6 +62,25 @@ def convert_file():
     # fin.close()
     fout.close()
 
+# 
+# Конвертируем и подготавливаем текстовый файл к работе
+# 
+def txt_to_csv(filename='train'):
+    df       = pd.read_csv( filename+'2.txt',dtype='object' , sep=',', low_memory=False , index_col=False)
+    df['dt'] = pd.to_datetime(df.Date+df.HrMn,format='%Y%m%d%H%M')
+    df       = df.set_index('dt')
+    df       = df.drop(['Date','HrMn'],axis=1)
+    df       = df.astype('float')
+    print(df.head())
+    print(df.info(memory_usage='deep'))
+    df.to_csv(filename+'.csv',sep=',')
+# 
+# 2. конвертируем текстовый файл в csv
+# 
+# txt_to_csv()
+
+
+
 # exit()
 # use_cols = ['Date','HrMn','Cv','Hgt','Wx.17','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']
 # # первый этап - читаем файл
