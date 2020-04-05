@@ -95,13 +95,33 @@ def set_fog_flag(df=None):
 # 4. cat boost train
 # 
 import catboost as cb
-from catboost import CatBoostRegressor, Pool
+from catboost import CatBoostRegressor, Pool, CatBoostClassifier
 
-X = df[['Cv','Hgt','Wx','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']]
-y = df[['fog']]
-dataset = cb.Pool(X, y, cat_features=['d'])
 
-print(dataset)
+
+X = np.array(df[['Cv','Hgt','Wx','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']].fillna(0))
+y = np.array(df[['fog']].fillna(0),'uint8').reshape(-1)
+# dataset = Pool(X, y)
+
+
+print(X)
+print(y)
+train_data = Pool(data=X,
+                  label=y)
+print(train_data)
+model = CatBoostClassifier(iterations=10)
+
+model.fit(train_data)
+# Get predicted classes
+preds_class = model.predict(train_data)
+print(preds_class)
+# Get predicted probabilities for each class
+preds_proba = model.predict_proba(train_data)
+print(preds_proba)
+# Get predicted RawFormulaVal
+preds_raw = model.predict(train_data, prediction_type='RawFormulaVal')
+print(preds_raw)
+exit()
 
 # Initialize CatBoostRegressor
 model = CatBoostRegressor(iterations=2,
