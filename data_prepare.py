@@ -23,13 +23,13 @@ pd.set_option('display.max_rows', None)
 import re
 
 
-def convert_file():
+def convert_file(filename='train'):
     # fin = open("train.txt", "rt")
-    fout = open("train2.txt", "wt")
+    fout = open(filename+"2.txt", "wt")
 
     count = 0
     print("\nUsing readline()") 
-    with open("train.txt") as fp: 
+    with open(filename+".txt") as fp: 
         while True: 
             line = fp.readline() 
             if not line:
@@ -37,6 +37,8 @@ def convert_file():
 
             if count==1:
                 line=re.sub('\s+',',',line)
+            if count==0:
+                fout.write( ','.join(['Date','HrMn','Cv','Hgt','Wx','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp'])+"\n" )
             count += 1
             if count>1:
                 line=re.sub('\s+','',line)
@@ -48,7 +50,7 @@ def convert_file():
                 fout.write(line+"\n")
     fout.close()
 
-# convert_file()
+# convert_file('test')
 
 # 
 # Конвертируем и подготавливаем текстовый файл к работе
@@ -65,7 +67,7 @@ def txt_to_csv(filename='train'):
 # 
 # 2. конвертируем текстовый файл в csv
 # 
-# txt_to_csv()
+# txt_to_csv('test')
 
 # 
 # 3. Подготавливаем параметры для обучения
@@ -74,19 +76,19 @@ def read_file(filename='train'):
     df = pd.read_csv(filename+'.csv', sep=';', low_memory=False , index_col='dt')
     return df
 
-df = read_file()
+# df = read_file('test')
 
 # устанавливаем флаг тумана в отдельной колоке
-def set_fog_flag(df=None):
-    fog_values = [ 20,30,31,32,33,34,35 ]
+def set_fog_flag(df=None,ffile="train"):
+    # fog_values = [ 20,30,31,32,33,34,35 ]
 
     for index, row in df.loc[ (df.Visby>0) & (df.Visby<=1000) ].iterrows():
-        if df.at[index, 'Wx'] in fog_values:
-            df.at[index, 'fog'] = True
-        else:
-            df.at[index, 'fog'] = False
+        # if df.at[index, 'Wx'] in fog_values:
+        df.at[index, 'fog'] = 1
+        # else:
+        #     df.at[index, 'fog'] = 0
     # save file
-    df.to_csv('train.csv',sep=';')
+    df.to_csv(ffile+'.csv',sep=';')
 
 # set_fog_flag(df)
 
@@ -97,21 +99,36 @@ def set_fog_flag(df=None):
 import catboost as cb
 from catboost import CatBoostRegressor, Pool, CatBoostClassifier
 
+# шаг, на который смещаемся в прогнозах
+shift_step = 8
 
+# подготавливаем X и y к отправке
+def get_xy(_df, _shift_step):
+    X = np.array(_df[['Cv','Hgt','Wx','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']].fillna(0))[_shift_step:]
+    y = np.array(_df[['fog']].shift( _shift_step,fill_value=0 ).fillna(0),'uint8').reshape(-1)[:-_shift_step]
+    return X,y
 
-X = np.array(df[['Cv','Hgt','Wx','Visby','Dir','Spd','Temp','Dewpt','RHx','Slp']].fillna(0))
-y = np.array(df[['fog']].fillna(0),'uint8').reshape(-1)
-# dataset = Pool(X, y)
+# get x and Y
+X, y = get_xy(df,shift_step)
+
+# if train false then load model and predict!
+train = False
 
 
 print(X)
 print(y)
+
 train_data = Pool(data=X,
                   label=y)
 print(train_data)
-model = CatBoostClassifier(iterations=10)
 
-model.fit(train_data)
+model = CatBoostClassifier(iterations=250)
+
+if train is True:
+    model.fit(train_data)
+else:
+    model.load_model("saved_model.cbm")
+    
 # Get predicted classes
 preds_class = model.predict(train_data)
 print(preds_class)
@@ -121,6 +138,17 @@ print(preds_proba)
 # Get predicted RawFormulaVal
 preds_raw = model.predict(train_data, prediction_type='RawFormulaVal')
 print(preds_raw)
+# plot tree model structure
+model.plot_tree(
+    tree_idx=0,
+    # pool=train_data
+)
+
+# save model
+if train is True:
+    model.save_mod el("saved_model.cbm",
+           format="cbm")
+
 exit()
 
 # Initialize CatBoostRegressor
@@ -128,6 +156,8 @@ model = CatBoostRegressor(iterations=2,
                           learning_rate=1,
                           depth=2)
 # Fit model
-model.fit(train_data, train_labels)
+model.fit(train_data, train_labels,
+          verbose=False,
+          plot=True)
 # Get predictions
 preds = model.predict(eval_data)
